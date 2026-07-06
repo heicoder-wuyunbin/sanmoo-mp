@@ -1,0 +1,25 @@
+{
+  "name": "miniprogram-ts-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "mcp:weapp": "weapp-dev-mcp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@yfme/weapp-dev-mcp": "^0.1.7",
+    "miniprogram-api-typings": "^2.8.3-1",
+    "typescript": "^6.0.2"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heicoder-wuyunbin/sanmoo-mp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heicoder-wuyunbin/sanmoo-mp/issues"
+  },
+  "homepage": "https://github.com/heicoder-wuyunbin/sanmoo-mp#readme"
+}

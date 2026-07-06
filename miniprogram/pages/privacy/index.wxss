@@ -1,0 +1,292 @@
+/* ============================================================
+   隐私政策页面样式 - 极简技术博客风格
+   与关于博主页面保持一致的设计语言
+   ============================================================ */
+
+.privacy-page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* ============ Hero 区 ============ */
+.privacy-page .hero {
+  position: relative;
+  padding: 80rpx 40rpx 100rpx;
+  color: #f8fafc;
+  margin-bottom: -40rpx;
+}
+
+.privacy-page .hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12rpx;
+  letter-spacing: -0.5rpx;
+}
+
+.page-caption {
+  font-size: 24rpx;
+  color: rgba(203, 213, 225, 0.9);
+  letter-spacing: 3rpx;
+  text-transform: uppercase;
+}
+
+.privacy-page .hero-cut {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1rpx;
+  height: 40rpx;
+  background: linear-gradient(to bottom right, transparent 49.5%, var(--bg-page) 50%);
+}
+
+/* ============ 内容区 ============ */
+.privacy-page .content-section {
+  padding: 48rpx 32rpx 32rpx;
+  position: relative;
+  z-index: 3;
+}
+
+/* Section 卡片 */
+.privacy-page .section-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1rpx solid var(--border-strong);
+  box-shadow: 0 2rpx 12rpx rgba(15, 23, 42, 0.06);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+/* Section 头部 */
+.privacy-page .section-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.privacy-page .section-mark {
+  width: 6rpx;
+  height: 36rpx;
+  background: var(--text-primary);
+  border-radius: 4rpx;
+}
+
+.privacy-page .section-mark--alt {
+  background: var(--accent);
+}
+
+.privacy-page .section-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.privacy-page .section-name {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3rpx;
+}
+
+.privacy-page .section-caption {
+  font-size: var(--font-xs);
+  color: var(--text-subtle);
+  letter-spacing: 3rpx;
+  text-transform: uppercase;
+}
+
+/* ============ 加载 / 空状态 ============ */
+.privacy-page .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400rpx;
+}
+
+.privacy-page .loading-text {
+  font-size: var(--font-base);
+  color: var(--text-subtle);
+}
+
+.privacy-page .empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400rpx;
+  font-size: var(--font-base);
+  color: var(--text-subtle);
+}
+
+.privacy-page .empty-text {
+  font-size: var(--font-base);
+  color: var(--text-subtle);
+}
+
+/* ============ 政策正文（mp-html 渲染） ============ */
+.policy-content {
+  margin-top: var(--space-2);
+}
+
+.policy-content :deep(h1),
+.policy-content :deep(h2),
+.policy-content :deep(h3),
+.policy-content :deep(h4),
+.policy-content :deep(h5),
+.policy-content :deep(h6) {
+  font-weight: 600;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  color: var(--text-primary);
+}
+
+.policy-content :deep(h1) { font-size: var(--font-xl); }
+.policy-content :deep(h2) { font-size: var(--font-lg); }
+.policy-content :deep(h3) { font-size: var(--font-md); }
+.policy-content :deep(h4),
+.policy-content :deep(h5),
+.policy-content :deep(h6) { font-size: var(--font-base); }
+
+.policy-content :deep(p) {
+  font-size: var(--font-base);
+  color: var(--text-regular);
+  line-height: 1.8;
+  margin-bottom: var(--space-2);
+}
+
+.policy-content :deep(ul),
+.policy-content :deep(ol) {
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-2);
+}
+
+.policy-content :deep(li) {
+  font-size: var(--font-base);
+  color: var(--text-regular);
+  line-height: 1.8;
+  margin-bottom: var(--space-1);
+}
+
+.policy-content :deep(a) {
+  color: var(--accent-text);
+  text-decoration: underline;
+}
+
+.policy-content :deep(strong),
+.policy-content :deep(b) {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.policy-content :deep(em),
+.policy-content :deep(i) {
+  font-style: italic;
+}
+
+.policy-content :deep(code) {
+  background: var(--bg-muted);
+  padding: 4rpx var(--space-1);
+  border-radius: var(--radius-xs);
+  font-size: var(--font-sm);
+  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+}
+
+.policy-content :deep(blockquote) {
+  border-left: 6rpx solid var(--accent);
+  padding-left: var(--space-3);
+  margin-left: 0;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-2);
+}
+
+/* ============ 声明 ============ */
+.privacy-page .declaration {
+  text-align: center;
+  padding: var(--space-6) 0;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.privacy-page .declaration text {
+  display: block;
+}
+
+.privacy-page .declaration-desc {
+  margin-top: var(--space-1);
+}
+
+/* ============ 深色模式适配 ============ */
+.privacy-page.night-mode {
+  background-color: #111827;
+}
+
+.privacy-page.night-mode .section-card {
+  background-color: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.3);
+}
+
+.privacy-page.night-mode .hero-cut {
+  background: linear-gradient(to bottom right, transparent 49.5%, #111827 50%);
+}
+
+.privacy-page.night-mode .section-name {
+  color: #f1f5f9;
+}
+
+.privacy-page.night-mode .section-mark {
+  background: #7dd3fc;
+}
+
+.privacy-page.night-mode .loading-text,
+.privacy-page.night-mode .empty-text {
+  color: #94a3b8;
+}
+
+/* mp-html 深色模式 */
+.privacy-page.night-mode .policy-content :deep(h1),
+.privacy-page.night-mode .policy-content :deep(h2),
+.privacy-page.night-mode .policy-content :deep(h3),
+.privacy-page.night-mode .policy-content :deep(h4),
+.privacy-page.night-mode .policy-content :deep(h5),
+.privacy-page.night-mode .policy-content :deep(h6) {
+  color: #f1f5f9;
+}
+
+.privacy-page.night-mode .policy-content :deep(p),
+.privacy-page.night-mode .policy-content :deep(li) {
+  color: #cbd5e1;
+}
+
+.privacy-page.night-mode .policy-content :deep(strong),
+.privacy-page.night-mode .policy-content :deep(b) {
+  color: #f1f5f9;
+}
+
+.privacy-page.night-mode .policy-content :deep(a) {
+  color: #7dd3fc;
+}
+
+.privacy-page.night-mode .policy-content :deep(code) {
+  background: #1f2937;
+  color: #e2e8f0;
+  border: 1rpx solid #374151;
+}
+
+.privacy-page.night-mode .policy-content :deep(blockquote) {
+  border-left-color: #7dd3fc;
+  color: #94a3b8;
+}
+
+.privacy-page.night-mode .declaration {
+  color: #64748b;
+}

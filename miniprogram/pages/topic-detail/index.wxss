@@ -1,0 +1,285 @@
+/* ============================================================
+   专题详情页样式 - 与首页统一风格
+   ============================================================ */
+
+.topic-detail-page {
+  min-height: 100vh;
+  background: var(--bg-page);
+}
+
+/* ============ Hero 区 ============ */
+.topic-hero {
+  position: relative;
+  padding: 20rpx 40rpx 80rpx;
+  color: #f8fafc;
+  margin-bottom: -40rpx;
+  margin-top: -20rpx;
+  background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 55%, #0c4a6e 100%);
+  overflow: hidden;
+}
+
+.topic-hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 400rpx;
+  height: 400rpx;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+.topic-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 300rpx;
+  height: 300rpx;
+  background: radial-gradient(circle, rgba(125, 211, 252, 0.1) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 10rpx 20rpx;
+  background: rgba(14, 165, 233, 0.15);
+  border: 1rpx solid rgba(14, 165, 233, 0.3);
+  border-radius: 100rpx;
+  margin-bottom: 28rpx;
+}
+
+.eyebrow-dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 12rpx rgba(56, 189, 248, 0.6);
+}
+
+.eyebrow-text {
+  font-size: 20rpx;
+  font-weight: 600;
+  letter-spacing: 3rpx;
+  color: #7dd3fc;
+}
+
+.hero-title {
+  display: block;
+  font-size: 52rpx;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5rpx;
+  margin-bottom: 20rpx;
+}
+
+.hero-desc {
+  display: block;
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: rgba(203, 213, 225, 0.85);
+  margin-bottom: 36rpx;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+  border-radius: 20rpx;
+  backdrop-filter: blur(10rpx);
+}
+
+.stat-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #f1f5f9;
+  letter-spacing: -0.5rpx;
+  font-family: 'SF Mono', 'Menlo', monospace;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: rgba(148, 163, 184, 0.8);
+  letter-spacing: 2rpx;
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-cut {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1rpx;
+  height: 40rpx;
+  background: linear-gradient(to bottom right, transparent 49.5%, var(--bg-page) 50%);
+}
+
+/* ============ 内容区 ============ */
+.content-section {
+  padding: 48rpx 32rpx 32rpx;
+  position: relative;
+  z-index: 3;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.section-head-main {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.section-mark {
+  width: 6rpx;
+  height: 36rpx;
+  background: #0f172a;
+  border-radius: 4rpx;
+}
+
+.section-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.section-name {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3rpx;
+}
+
+.section-caption {
+  font-size: 20rpx;
+  color: var(--text-subtle);
+  letter-spacing: 3rpx;
+  text-transform: uppercase;
+}
+
+.section-desc {
+  font-size: 26rpx;
+  color: #64748b;
+  margin-bottom: 32rpx;
+  line-height: 1.6;
+}
+
+/* ============ 深色模式 ============ */
+.topic-detail-page.night-mode {
+  background: #020617;
+}
+
+.topic-detail-page.night-mode .topic-hero {
+  background: linear-gradient(160deg, #020617 0%, #0f172a 45%, #1e293b 70%, #0f172a 100%);
+}
+
+.topic-detail-page.night-mode .hero-title {
+  color: #f8fafc;
+}
+
+.topic-detail-page.night-mode .hero-desc {
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.topic-detail-page.night-mode .section-name {
+  color: #f1f5f9;
+}
+
+.topic-detail-page.night-mode .section-mark {
+  background: #7dd3fc;
+}
+
+.topic-detail-page.night-mode .section-desc {
+  color: #64748b;
+}
+
+.topic-detail-page.night-mode .article-card {
+  background: #0f172a;
+  border-color: rgba(30, 41, 59, 0.8);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.4),
+              inset 0 1rpx 0 rgba(255, 255, 255, 0.03);
+}
+
+.topic-detail-page.night-mode .article-card:active {
+  background: #1e293b;
+}
+
+.topic-detail-page.night-mode .article-title {
+  color: #f1f5f9;
+}
+
+.topic-detail-page.night-mode .article-excerpt {
+  color: #94a3b8;
+}
+
+.topic-detail-page.night-mode .article-category {
+  color: #7dd3fc;
+  background: rgba(14, 165, 233, 0.15);
+}
+
+.topic-detail-page.night-mode .article-date {
+  color: #64748b;
+}
+
+.topic-detail-page.night-mode .tag-chip {
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+}
+
+.topic-detail-page.night-mode .meta-read {
+  color: #cbd5e1;
+}
+
+.topic-detail-page.night-mode .meta-dot {
+  color: #374151;
+}
+
+.topic-detail-page.night-mode .meta-estimate {
+  color: #64748b;
+}
+
+.topic-detail-page.night-mode .foot-cta {
+  color: #0ea5e9;
+}
+
+.topic-detail-page.night-mode .article-foot {
+  border-top-color: rgba(30, 41, 59, 0.6);
+}
+
+.topic-detail-page.night-mode .empty-title {
+  color: #f1f5f9;
+}
+
+.topic-detail-page.night-mode .empty-desc {
+  color: #64748b;
+}
+
+.topic-detail-page.night-mode .loading {
+  color: #64748b;
+}

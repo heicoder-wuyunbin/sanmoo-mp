@@ -1,0 +1,42 @@
+<view class="container privacy-page {{ nightMode ? 'night-mode' : '' }}">
+  <view class="hero hero-gradient">
+    <view class="hero-inner">
+      <text class="page-title">隐私政策</text>
+      <text class="page-caption">Privacy Policy</text>
+    </view>
+    <view class="hero-cut"></view>
+  </view>
+
+  <view class="content-section">
+    <view class="section-card">
+      <view class="section-head">
+        <view class="section-mark section-mark--alt"></view>
+        <view class="section-texts">
+          <text class="section-name">政策条款</text>
+          <text class="section-caption">Terms & Privacy</text>
+        </view>
+      </view>
+
+      <block wx:if="{{ loading }}">
+        <view class="loading">
+          <text class="loading-text">加载中…</text>
+        </view>
+      </block>
+      <block wx:elif="{{ content }}">
+        <view class="policy-content">
+          <mp-html content="{{ content }}" />
+        </view>
+      </block>
+      <block wx:else>
+        <view class="empty">
+          <text class="empty-text">暂无隐私政策内容</text>
+        </view>
+      </block>
+    </view>
+
+    <view class="declaration">
+      <text>© 2023-2026 Sanmoo Blog. All rights reserved.</text>
+      <text class="declaration-desc">以简约、自然、确定的方式沉淀长期技术价值。</text>
+    </view>
+  </view>
+</view>

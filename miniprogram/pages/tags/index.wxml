@@ -1,0 +1,37 @@
+<view class="container tags-page {{ nightMode ? 'night-mode' : '' }}">
+  <view class="page-hero">
+    <view class="hero-brand">
+      <image class="icon-svg icon-svg--white" src="../../assets/tag.svg" mode="aspectFit"></image>
+    </view>
+    <text class="hero-title">标签浏览</text>
+    <text class="hero-subtitle">按技术关键词进入文章集合</text>
+  </view>
+
+  <scroll-view class="tag-tabs" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="tabs-track">
+      <view
+        wx:for="{{tags}}"
+        wx:key="id"
+        class="tab-item {{selectedTagId === item.id ? 'is-active' : ''}}"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+        bindtap="selectTag"
+      >
+        <text class="tab-text">{{item.name}}</text>
+        <text wx:if="{{item.articleCount !== undefined}}" class="tab-count">{{item.articleCount}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="content-wrap">
+    <article-list
+      articles="{{articles}}"
+      loading="{{loading}}"
+      showBackTop="{{showBackTop}}"
+      emptyText="暂无文章"
+      emptyDesc="该标签下还没有内容"
+      bind:articletap="onArticleTap"
+      bind:backtop="backToTop"
+    />
+  </view>
+</view>

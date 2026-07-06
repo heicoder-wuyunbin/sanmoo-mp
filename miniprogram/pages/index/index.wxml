@@ -1,0 +1,175 @@
+<view class="container home-page {{ nightMode ? 'night-mode' : '' }}">
+  <!-- ========== Hero 头部区 ========== -->
+  <view class="hero hero-gradient">
+    <view class="hero-inner">
+      <view class="hero-top-bar">
+        <view class="hero-brand">
+          <view class="hero-logo">
+            <image class="icon-svg icon-svg--white" src="../../assets/browse.svg" mode="aspectFit"></image>
+          </view>
+          <view class="hero-brand-text">
+            <text class="brand-name">{{ blogName }}</text>
+            <text class="brand-tag">TECH · BLOG</text>
+          </view>
+        </view>
+        <view class="hero-actions">
+          <view class="icon-btn" bindtap="goToSearch">
+            <image class="icon-svg icon-svg--white" src="../../assets/search.svg" mode="aspectFit"></image>
+          </view>
+          <view class="icon-btn" bindtap="goToFavorites">
+            <image class="icon-svg icon-svg--white" src="../../assets/favorite.svg" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="hero-content">
+        <view class="hero-eyebrow">
+          <view class="eyebrow-dot"></view>
+          <text class="eyebrow-text">BACKEND ENGINEERING</text>
+        </view>
+        <view class="hero-title">{{ introduction || '深度技术内容，系统学习路径' }}</view>
+        <view class="hero-desc">高质量技术文章，覆盖架构设计、系统优化、工程实践。沉淀可复用的知识体系。</view>
+
+        <view class="hero-stats">
+          <view class="stat-block">
+            <text class="stat-num">{{ total || 0 }}</text>
+            <text class="stat-label">文章</text>
+          </view>
+          <view class="stat-divider"></view>
+          <view class="stat-block">
+            <text class="stat-num">{{ featuredTopics.length || 0 }}</text>
+            <text class="stat-label">专题</text>
+          </view>
+          <view class="stat-divider"></view>
+          <view class="stat-block">
+            <text class="stat-num">{{ categoriesCount || 0 }}</text>
+            <text class="stat-label">分类</text>
+          </view>
+        </view>
+
+        <view class="hero-entry-row">
+          <view class="hero-entry hero-entry--primary" bindtap="goToSearch">
+            <text>搜索文章</text>
+            <text class="entry-arrow">→</text>
+          </view>
+          <view class="hero-entry" bindtap="goToTopics">
+            <text>浏览专题</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 底部装饰切角 -->
+    <view class="hero-cut"></view>
+  </view>
+
+  <!-- ========== 推荐阅读 ========== -->
+  <view class="content-section">
+    <view class="section-head">
+      <view class="section-head-main">
+        <view class="section-mark"></view>
+        <view class="section-texts">
+          <text class="section-name">推荐阅读</text>
+          <text class="section-caption">Editor's Picks</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{articles.length === 0 && !loading}}" class="empty card">
+      <text>暂无文章</text>
+    </view>
+
+    <view
+      wx:for="{{articles}}"
+      wx:key="id"
+      class="article-item {{openedId === item.id ? 'is-opened' : ''}}"
+    >
+      <view class="swipe-actions" data-id="{{item.id}}" catchtap="addFavorite">
+        <text class="swipe-text">收藏</text>
+      </view>
+
+      <view
+        class="article-card"
+        data-id="{{item.id}}"
+        bindtap="goToArticleDetail"
+        bindtouchstart="onItemTouchStart"
+        bindtouchend="onItemTouchEnd"
+      >
+        <!-- 置顶/特色标签 -->
+        <view wx:if="{{idx === 0 || item.isTop}}" class="article-ribbon">
+          <text>{{ idx === 0 ? 'EDITOR PICK' : 'TOP' }}</text>
+        </view>
+
+        <view class="article-head">
+          <text class="article-category">{{ item.categoryName || 'Tech' }}</text>
+          <text class="article-date">{{ item.createTime ? item.createTime.slice(0, 10) : '' }}</text>
+        </view>
+
+        <view class="article-title">{{ item.title }}</view>
+
+        <view wx:if="{{item.description}}" class="article-excerpt">{{ item.description }}</view>
+
+        <view wx:if="{{item.tags && item.tags.length}}" class="article-tags">
+          <text wx:for="{{item.tags}}" wx:key="id" wx:for-item="tag" class="tag-chip">#{{ tag.name }}</text>
+        </view>
+
+        <view class="article-foot">
+          <view class="foot-meta">
+            <text class="meta-read">阅读 {{ item.readNum || 0 }}</text>
+            <text class="meta-dot">·</text>
+            <text class="meta-estimate">{{ estimateReadTime(item.description) }}</text>
+          </view>
+          <view class="foot-cta">
+            <text>阅读</text>
+            <text class="cta-arrow">→</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading">
+      <text>加载中…</text>
+    </view>
+
+    <!-- ========== 精选专题 ========== -->
+    <view wx:if="{{featuredTopics.length > 0}}" class="topics-block">
+      <view class="section-head">
+        <view class="section-head-main">
+          <view class="section-mark section-mark--alt"></view>
+          <view class="section-texts">
+            <text class="section-name">精选专题</text>
+            <text class="section-caption">Topic Collections</text>
+          </view>
+        </view>
+        <view class="section-more" catchtap="goToTopics">
+          <text>全部</text>
+          <text class="more-arrow">→</text>
+        </view>
+      </view>
+
+      <scroll-view class="topics-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+        <view class="topics-track">
+          <view
+            wx:for="{{featuredTopics}}"
+            wx:key="id"
+            class="topic-card"
+            data-id="{{item.id}}"
+            data-title="{{item.title}}"
+            bindtap="goToTopicDetail"
+          >
+            <view class="topic-cover">
+              <text class="topic-bracket">[</text>
+              <text class="topic-index">0{{ index + 1 }}</text>
+              <text class="topic-bracket">]</text>
+            </view>
+            <view class="topic-body">
+              <text class="topic-title">{{ item.title }}</text>
+              <text class="topic-meta">{{ item.articleCount || 0 }} 篇文章</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class="back-top {{ showBackTop ? 'show' : '' }}" bindtap="backToTop">↑</view>
+</view>

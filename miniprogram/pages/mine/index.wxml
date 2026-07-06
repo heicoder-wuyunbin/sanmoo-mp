@@ -1,0 +1,252 @@
+<view class="container mine-page {{ nightMode ? 'night-mode' : '' }}">
+  <!-- ============ 顶部区域：深色沉浸 ============ -->
+  <view class="profile-hero">
+    <view class="hero-top">
+      <view class="hero-brand">
+        <image class="icon-svg icon-svg--white" src="../../assets/browse.svg" mode="aspectFit"></image>
+        <text class="brand-name">SANMOO</text>
+      </view>
+    </view>
+
+    <view class="profile-main">
+      <view class="avatar-wrap" bindtap="handleProfileTap">
+        <view class="avatar-ring">
+          <image
+            wx:if="{{ userInfo && userInfo.avatarUrl }}"
+            class="avatar-img"
+            src="{{ userInfo.avatarUrl }}"
+            mode="aspectFill"
+          ></image>
+          <view wx:else class="avatar-img avatar-placeholder">
+            <text class="placeholder-text">SAN</text>
+          </view>
+        </view>
+        <view class="avatar-status"></view>
+        <view class="avatar-edit-hint">
+          <text>编辑</text>
+        </view>
+      </view>
+
+      <view class="profile-text" bindtap="handleProfileTap">
+        <text class="profile-name">{{ userInfo && userInfo.nickName ? userInfo.nickName : '技术探索者' }}</text>
+        <text class="profile-bio">{{ blogOwner || '深度思考，持续输出' }}</text>
+        <text class="profile-edit-hint">点击编辑个人信息</text>
+      </view>
+    </view>
+
+    <!-- 数据统计卡 -->
+    <view class="stats-card">
+      <view class="stat-col">
+        <text class="stat-value">{{ favoriteCount || 0 }}</text>
+        <text class="stat-label">收藏</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-col">
+        <text class="stat-value">{{ historyCount || 0 }}</text>
+        <text class="stat-label">已读</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ============ 快捷入口 ============ -->
+  <view class="quick-entry">
+    <view class="entry-item" bindtap="goToFavorites">
+      <view class="entry-icon entry-icon--fav">
+        <image class="icon-svg icon-svg--md" src="../../assets/favorite.svg" mode="aspectFit"></image>
+      </view>
+      <text class="entry-text">收藏</text>
+    </view>
+    <view class="entry-item" bindtap="goToHistory">
+      <view class="entry-icon entry-icon--history">
+        <image class="icon-svg icon-svg--md" src="../../assets/history.svg" mode="aspectFit"></image>
+      </view>
+      <text class="entry-text">历史</text>
+    </view>
+    <view class="entry-item" bindtap="goToSearch">
+      <view class="entry-icon entry-icon--search">
+        <image class="icon-svg icon-svg--md" src="../../assets/search.svg" mode="aspectFit"></image>
+      </view>
+      <text class="entry-text">搜索</text>
+    </view>
+    <view class="entry-item" bindtap="generatePoster">
+      <view class="entry-icon entry-icon--share">
+        <image class="icon-svg icon-svg--md" src="../../assets/link.svg" mode="aspectFit"></image>
+      </view>
+      <text class="entry-text">海报</text>
+    </view>
+  </view>
+
+  <!-- ============ 功能菜单 ============ -->
+  <view class="menu-section">
+    <view class="section-head">
+      <text class="section-title">设置</text>
+      <text class="section-caption">SETTINGS</text>
+    </view>
+
+    <view class="menu-card">
+      <view class="menu-row menu-row--theme">
+        <view class="menu-left">
+          <view class="menu-icon {{ nightMode ? 'menu-icon--moon-dark' : 'menu-icon--moon-light' }}">
+            <image class="icon-svg" src="../../assets/set.svg" mode="aspectFit"></image>
+          </view>
+          <view class="menu-texts">
+            <text class="menu-title">{{ nightMode ? '深色模式' : '浅色模式' }}</text>
+            <text class="menu-desc">{{ nightMode ? '护眼深色阅读体验' : '清爽浅色阅读体验' }}</text>
+          </view>
+        </view>
+        <view class="menu-switch">
+          <switch checked="{{ nightMode }}" catchchange="toggleNightMode" color="#0ea5e9" />
+        </view>
+      </view>
+
+      <view class="menu-divider"></view>
+
+      <view class="menu-row menu-row--subscribe">
+        <view class="menu-left">
+          <view class="menu-icon menu-icon--subscribe">
+            <image class="icon-svg" src="../../assets/browse.svg" mode="aspectFit"></image>
+          </view>
+          <view class="menu-texts">
+            <text class="menu-title">订阅消息</text>
+            <text class="menu-desc">新文章发布时推送通知</text>
+          </view>
+        </view>
+        <view class="menu-switch">
+          <switch checked="{{ subscribeStatus }}" catchchange="toggleSubscribe" color="#0ea5e9" />
+        </view>
+      </view>
+
+      <view class="menu-divider"></view>
+
+      <view class="menu-row" bindtap="handleLogout">
+        <view class="menu-left">
+          <view class="menu-icon menu-icon--logout">
+            <image class="icon-svg" src="../../assets/skip.svg" mode="aspectFit"></image>
+          </view>
+          <view class="menu-texts">
+            <text class="menu-title">安全退出</text>
+            <text class="menu-desc">清除缓存与登录信息</text>
+          </view>
+        </view>
+        <view class="menu-arrow">
+          <text>→</text>
+        </view>
+      </view>
+
+      <view class="menu-divider"></view>
+
+      <view class="menu-row" bindtap="goToAbout">
+        <view class="menu-left">
+          <view class="menu-icon menu-icon--about">
+            <image class="icon-svg" src="../../assets/information.svg" mode="aspectFit"></image>
+          </view>
+          <view class="menu-texts">
+            <text class="menu-title">关于作者</text>
+            <text class="menu-desc">了解背后的故事</text>
+          </view>
+        </view>
+        <view class="menu-arrow">
+          <text>→</text>
+        </view>
+      </view>
+
+      <view class="menu-divider"></view>
+
+      <view class="menu-row" bindtap="goToPrivacy">
+        <view class="menu-left">
+          <view class="menu-icon menu-icon--privacy">
+            <image class="icon-svg" src="../../assets/information.svg" mode="aspectFit"></image>
+          </view>
+          <view class="menu-texts">
+            <text class="menu-title">隐私政策</text>
+            <text class="menu-desc">了解数据收集与使用</text>
+          </view>
+        </view>
+        <view class="menu-arrow">
+          <text>→</text>
+        </view>
+      </view>
+
+      <view class="menu-divider"></view>
+
+      <view class="menu-row menu-row--danger" bindtap="handleDeleteAccount">
+        <view class="menu-left">
+          <view class="menu-icon menu-icon--delete">
+            <image class="icon-svg" src="../../assets/delete.svg" mode="aspectFit"></image>
+          </view>
+          <view class="menu-texts">
+            <text class="menu-title">删除账户</text>
+            <text class="menu-desc">永久删除所有个人数据</text>
+          </view>
+        </view>
+        <view class="menu-arrow">
+          <text>→</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ============ 版权信息 ============ -->
+  <view class="copyright">
+    <text class="copyright-text">Sanmoo Blog © 2025 </text>
+  </view>
+
+  <!-- ============ 授权弹窗 ============ -->
+  <view wx:if="{{ showAuthModal }}" class="modal-overlay" bindtap="hideAuthModal">
+    <view class="auth-modal" catchtap="noop">
+      <view class="modal-header">
+        <view class="modal-title-wrap">
+          <text class="modal-title">登录授权</text>
+          <text class="modal-subtitle">完善您的个人信息</text>
+        </view>
+        <view class="modal-close" bindtap="hideAuthModal">
+          <text>×</text>
+        </view>
+      </view>
+      <view class="modal-body">
+        <view class="auth-section">
+          <text class="auth-label">头像</text>
+          <button
+            class="avatar-upload-btn"
+            open-type="chooseAvatar"
+            bindchooseavatar="handleChooseAvatar"
+          >
+            <image
+              wx:if="{{ tempAvatar }}"
+              class="upload-avatar-preview"
+              src="{{ tempAvatar }}"
+              mode="aspectFill"
+            ></image>
+            <view wx:else class="upload-avatar-placeholder">
+              <view class="upload-avatar-icon">
+                <text>+</text>
+              </view>
+              <text>选择头像</text>
+            </view>
+          </button>
+        </view>
+
+        <view class="auth-section">
+          <text class="auth-label">昵称</text>
+          <input
+            type="nickname"
+            class="nickname-input"
+            placeholder="请输入昵称"
+            value="{{ tempNickname }}"
+            bindinput="handleNicknameInput"
+          />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="modal-btn modal-btn--cancel" bindtap="hideAuthModal">取消</button>
+        <button
+          class="modal-btn modal-btn--confirm"
+          bindtap="handleSaveUserInfo"
+          disabled="{{ !tempAvatar || !tempNickname }}"
+        >
+          确定
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,54 @@
+<view class="container topic-detail-page">
+  <!-- ============ Hero 区 ============ -->
+  <view class="topic-hero">
+    <view class="hero-inner">
+      <view class="hero-eyebrow">
+        <view class="eyebrow-dot"></view>
+        <text class="eyebrow-text">专题详情</text>
+      </view>
+
+      <text class="hero-title">{{ topic.title }}</text>
+
+      <text class="hero-desc">{{ topic.description || '围绕同一主题持续整理文章，适合连续阅读与复习。' }}</text>
+
+      <view class="hero-stats">
+        <view class="stat-block">
+          <text class="stat-num">{{ topic.articleCount || 0 }}</text>
+          <text class="stat-label">篇文章</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-block">
+          <text class="stat-num">{{ totalReads || 0 }}</text>
+          <text class="stat-label">总阅读</text>
+        </view>
+      </view>
+    </view>
+    <view class="hero-cut"></view>
+  </view>
+
+  <!-- ============ 内容区 ============ -->
+  <view class="content-section">
+    <view class="section-head">
+      <view class="section-head-main">
+        <view class="section-mark"></view>
+        <view class="section-texts">
+          <text class="section-name">专题文章</text>
+          <text class="section-caption">Topic Articles</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-desc">按同一主题连续阅读，建立完整知识链路。</view>
+
+    <!-- 文章列表组件 -->
+    <article-list
+      articles="{{articles}}"
+      loading="{{loading}}"
+      showBackTop="{{showBackTop}}"
+      emptyText="该专题下暂无文章"
+      emptyDesc="敬请期待更多内容更新"
+      bind:articletap="onArticleTap"
+      bind:backtop="backToTop"
+    />
+  </view>
+</view>

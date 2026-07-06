@@ -1,0 +1,20 @@
+<view class="container poster-page {{ nightMode ? 'night-mode' : '' }}">
+  <view class="hero hero-gradient">
+    <view class="hero-inner">
+      <text class="hero-title">分享海报</text>
+      <text class="hero-desc">生成适合朋友圈传播的技术博客海报，统一品牌调性与阅读入口。</text>
+    </view>
+    <view class="hero-cut"></view>
+  </view>
+
+  <view class="content-section">
+    <view class="poster-card">
+      <image class="poster-image" src="{{ posterUrl }}" mode="aspectFit" lazy-load />
+    </view>
+
+    <view class="poster-actions">
+      <button class="btn btn-outline" bindtap="refreshPoster">刷新海报</button>
+      <button class="btn btn-primary" bindtap="savePoster">保存到相册</button>
+    </view>
+  </view>
+</view>

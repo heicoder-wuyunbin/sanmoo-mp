@@ -1,0 +1,56 @@
+<!-- ============================================================
+     article-list 组件 - 通用文章列表 + 回到顶部悬浮按钮
+     ============================================================ -->
+
+<!-- 空状态 -->
+<view wx:if="{{articles.length === 0 && !loading}}" class="empty-state">
+  <image class="empty-icon icon-svg icon-svg--xl" src="../assets/browse.svg" mode="aspectFit"></image>
+  <text class="empty-title">{{ emptyText }}</text>
+  <text wx:if="{{emptyDesc}}" class="empty-desc">{{ emptyDesc }}</text>
+</view>
+
+<!-- 文章列表 -->
+<view
+  wx:for="{{articles}}"
+  wx:key="id"
+  class="article-card"
+  data-id="{{item.id}}"
+  bindtap="onArticleTap"
+>
+  <view class="article-head">
+    <text class="article-category">{{ item.categoryName || 'Tech' }}</text>
+    <text class="article-date">{{ item.createTime ? item.createTime.slice(0, 10) : '' }}</text>
+  </view>
+
+  <text class="article-title">{{ item.title }}</text>
+
+  <text wx:if="{{item.description}}" class="article-excerpt">{{ item.description }}</text>
+
+  <view wx:if="{{item.tags && item.tags.length}}" class="article-tags">
+    <text wx:for="{{item.tags}}" wx:key="id" wx:for-item="tag" class="tag-chip">#{{ tag.name }}</text>
+  </view>
+
+  <view class="article-foot">
+    <view class="foot-meta">
+      <text class="meta-read">阅读 {{ item.readNum || 0 }}</text>
+      <text class="meta-dot">·</text>
+      <text class="meta-estimate">{{ estimateReadTime(item.description) }}</text>
+    </view>
+    <view class="foot-cta">
+      <text>阅读</text>
+      <text class="cta-arrow">→</text>
+    </view>
+  </view>
+</view>
+
+<!-- 加载状态 -->
+<view wx:if="{{loading}}" class="loading-state">
+  <text class="loading-text">加载中…</text>
+</view>
+
+<!-- ========== 回到顶部悬浮按钮 ========== -->
+<view class="back-top {{ showBackTop ? 'show' : '' }}" bindtap="onBackTop">
+  <view class="back-top-inner">
+    <text class="back-top-arrow">↑</text>
+  </view>
+</view>

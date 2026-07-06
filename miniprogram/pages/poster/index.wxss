@@ -1,0 +1,138 @@
+/* ============================================================
+   海报页面样式 - 极简技术博客风格
+   ============================================================ */
+
+.poster-page {
+  min-height: 100vh;
+  padding-bottom: 48rpx;
+}
+
+/* ============ Hero 区 ============ */
+.hero {
+  position: relative;
+  padding: 40rpx 40rpx 80rpx;
+  color: #f8fafc;
+  margin-bottom: -40rpx;
+  margin-top: -20rpx;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5rpx;
+  margin-bottom: 16rpx;
+}
+
+.hero-desc {
+  display: block;
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: rgba(203, 213, 225, 0.85);
+}
+
+.hero-cut {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1rpx;
+  height: 40rpx;
+  background: linear-gradient(to bottom right, transparent 49.5%, var(--bg-page) 50%);
+}
+
+/* ============ 内容区 ============ */
+.content-section {
+  padding: 48rpx 32rpx 32rpx;
+  position: relative;
+  z-index: 3;
+}
+
+/* 海报卡片 */
+.poster-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  border: 1rpx solid #e2e8f0;
+  box-shadow: 0 4rpx 20rpx rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.poster-image {
+  width: 100%;
+  height: 900rpx;
+}
+
+/* 操作按钮 */
+.poster-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 32rpx;
+}
+
+.btn {
+  flex: 1;
+  height: 88rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: #ffffff;
+  box-shadow: 0 4rpx 16rpx rgba(14, 165, 233, 0.4);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(14, 165, 233, 0.3);
+}
+
+.btn-outline {
+  background: #ffffff;
+  color: #0ea5e9;
+  border: 2rpx solid #0ea5e9;
+}
+
+.btn-outline:active {
+  background: rgba(14, 165, 233, 0.08);
+}
+
+/* ============ 深色模式适配 ============ */
+.poster-page.night-mode {
+  background-color: #111827;
+}
+
+.poster-page.night-mode .poster-card {
+  background-color: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.3);
+}
+
+.poster-page.night-mode .hero-title {
+  color: #f1f5f9;
+}
+
+.poster-page.night-mode .hero-desc {
+  color: #cbd5e1;
+}
+
+.poster-page.night-mode .btn-outline {
+  background: #1f2937;
+  color: #7dd3fc;
+  border-color: #7dd3fc;
+}
+
+.poster-page.night-mode .btn-outline:active {
+  background: rgba(56, 189, 248, 0.1);
+}

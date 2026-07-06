@@ -1,0 +1,28 @@
+<view class="container history-page {{ nightMode ? 'night-mode' : '' }}">
+  <!-- ============ 顶部 Hero 区 ============ -->
+  <view class="page-hero">
+    <view class="hero-brand">
+      <image class="icon-svg icon-svg--white" src="../../assets/history.svg" mode="aspectFit"></image>
+    </view>
+    <view class="hero-content">
+      <text class="hero-title">浏览历史</text>
+      <text class="hero-subtitle">继续阅读最近访问过的文章，保持你的技术阅读上下文。</text>
+    </view>
+    <view class="clear-btn" bindtap="clearHistory" wx:if="{{ list.length > 0 }}">
+      <text class="clear-text">清空</text>
+    </view>
+  </view>
+
+  <!-- ============ 文章列表组件 ============ -->
+  <view class="content-wrap">
+    <article-list
+      articles="{{list}}"
+      loading="{{loading}}"
+      showBackTop="{{showBackTop}}"
+      emptyText="暂无浏览历史"
+      emptyDesc="浏览文章后会自动记录在这里"
+      bind:articletap="onArticleTap"
+      bind:backtop="backToTop"
+    />
+  </view>
+</view>

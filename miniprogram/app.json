@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/categories/index",
+    "pages/tags/index",
+    "pages/pagination/index",
+    "pages/favorites/index",
+    "pages/article-detail/index",
+    "pages/mine/index",
+    "pages/history/index",
+    "pages/about/index",
+    "pages/search/index",
+    "pages/topics/index",
+    "pages/topic-detail/index",
+    "pages/poster/index",
+    "pages/privacy/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Sanmoo Blog",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f8fafc",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#64748b",
+    "selectedColor": "#0ea5e9",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/pic.png",
+        "selectedIconPath": "assets/pic.png"
+      },
+      {
+        "pagePath": "pages/categories/index",
+        "text": "分类",
+        "iconPath": "assets/category.png",
+        "selectedIconPath": "assets/category.png"
+      },
+      {
+        "pagePath": "pages/topics/index",
+        "text": "专题",
+        "iconPath": "assets/box.png",
+        "selectedIconPath": "assets/box.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "assets/account.png",
+        "selectedIconPath": "assets/account.png"
+      }
+    ]
+  },
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}

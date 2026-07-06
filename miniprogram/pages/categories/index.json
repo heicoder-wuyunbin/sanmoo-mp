@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "article-list": "../../components/article-list/index"
+  },
+  "navigationBarTitleText": "分类",
+  "enablePullDownRefresh": true
+}

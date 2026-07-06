@@ -1,0 +1,51 @@
+<view class="container archive-page {{ nightMode ? 'night-mode' : '' }}">
+  <view class="header card">
+    <view class="section-title">文章归档</view>
+    <view class="subtitle">按时间浏览文章，快速回顾长期知识沉淀</view>
+  </view>
+
+  <scroll-view class="year-nav" scroll-x enable-flex>
+    <view
+      wx:for="{{years}}"
+      wx:key="item"
+      class="year-item {{selectedYear === item ? 'active' : ''}}"
+      data-year="{{item}}"
+      bindtap="selectYear"
+    >
+      {{item}}年
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{archives.length === 0 && !loading}}" class="empty card">暂无文章</view>
+
+  <view wx:for="{{archives}}" wx:key="month" class="month-section card">
+    <view class="month-header" bindtap="toggleMonth" data-month="{{item.month}}">
+      <view class="month-title">{{item.month}}月</view>
+      <view class="month-count">{{item.count}} 篇文章</view>
+      <view class="month-toggle">{{expandedMonths[item.month] ? '▼' : '▶'}}</view>
+    </view>
+    
+    <view wx:if="{{expandedMonths[item.month]}}" class="article-list">
+      <view
+        wx:for="{{item.articles}}"
+        wx:key="id"
+        class="article-item"
+        data-id="{{item.id}}"
+        bindtap="goToArticleDetail"
+      >
+        <view class="article-topline">
+          <text class="article-label">归档文章</text>
+          <text class="article-day">{{item.createTime ? item.createTime.slice(8, 10) : ''}}日</text>
+        </view>
+        <view class="article-title">{{item.title}}</view>
+        <view class="article-meta">
+          <text wx:if="{{item.categoryName}}" class="meta-pill">{{item.categoryName}}</text>
+          <text class="meta-pill">阅读 {{item.readNum}}</text>
+        </view>
+        <view class="article-cta">阅读全文</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">加载中…</view>
+</view>

@@ -1,0 +1,111 @@
+<view class="container detail-page {{ nightMode ? 'night-mode' : '' }}">
+  <view wx:if="{{loading}}" class="loading-state">
+    <view class="loading-dot"></view>
+    <text class="loading-text">加载文章…</text>
+  </view>
+
+  <block wx:if="{{article}}">
+    <!-- 文章头部：深色沉浸区 -->
+    <view class="article-header">
+      <view class="header-meta">
+        <view class="meta-category">
+          <text class="category-label">{{ article.categoryName || 'Tech' }}</text>
+        </view>
+        <text class="meta-date">{{ article.createTime ? article.createTime.slice(0, 10) : '' }}</text>
+      </view>
+
+      <view class="article-title">{{ article.title }}</view>
+
+      <view wx:if="{{article.description}}" class="article-subtitle">{{ article.description }}</view>
+
+      <!-- 标签 -->
+      <view wx:if="{{article.tags && article.tags.length}}" class="article-tags">
+        <text wx:for="{{article.tags}}" wx:key="id" class="tag-chip">#{{ item.name }}</text>
+      </view>
+
+      <!-- 元信息统计 -->
+      <view class="header-stats">
+        <view class="stat-item">
+          <text class="stat-value">{{ article.readNum || 0 }}</text>
+          <text class="stat-key">阅读</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-value">{{ articleWordCount }}</text>
+          <text class="stat-key">字数</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-value">{{ articleReadTime }}</text>
+          <text class="stat-key">分钟</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 文章内容 -->
+    <view class="article-content">
+      <view class="md-body">
+        <mp-html content="{{ contentHtml }}" />
+      </view>
+    </view>
+
+    <!-- 上下篇导航 -->
+    <view class="nav-card" wx:if="{{article.prevArticle || article.nextArticle}}">
+      <view class="nav-card-header">
+        <view class="nav-header-mark"></view>
+        <view class="nav-header-text">
+          <text class="nav-title-main">继续阅读</text>
+          <text class="nav-title-sub">CONTINUE READING</text>
+        </view>
+      </view>
+
+      <view class="nav-list">
+        <view
+          wx:if="{{article.prevArticle}}"
+          class="nav-rail nav-rail--prev"
+          data-id="{{article.prevArticle.id}}"
+          bindtap="goToArticle"
+        >
+          <view class="nav-rail-icon">
+                <image class="icon-svg icon-svg--md" src="../../assets/back.svg" mode="aspectFit"></image>
+              </view>
+          <view class="nav-rail-body">
+            <view class="nav-rail-label">上一篇</view>
+            <view class="nav-rail-title">{{ article.prevArticle.title }}</view>
+          </view>
+        </view>
+
+        <view
+          wx:if="{{article.nextArticle}}"
+          class="nav-rail nav-rail--next"
+          data-id="{{article.nextArticle.id}}"
+          bindtap="goToArticle"
+        >
+          <view class="nav-rail-body nav-rail-body--right">
+            <view class="nav-rail-label">下一篇</view>
+            <view class="nav-rail-title">{{ article.nextArticle.title }}</view>
+          </view>
+          <view class="nav-rail-icon">
+                <image class="icon-svg icon-svg--md" src="../../assets/back.svg" mode="aspectFit"></image>
+              </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 底部悬浮操作栏 -->
+  <view class="bottom-action-bar">
+    <button
+      class="action-btn action-btn--favorite {{article && article.isFavorited ? 'is-active' : ''}}"
+      disabled="{{favoriteLoading}}"
+      bindtap="toggleFavorite"
+    >
+      <image class="btn-icon icon-svg icon-svg--md" src="../../assets/favorite.svg" mode="aspectFit"></image>
+      <text class="btn-text">{{ article && article.isFavorited ? '已收藏' : '收藏' }}</text>
+    </button>
+    <button class="action-btn action-btn--share" open-type="share">
+      <image class="btn-icon icon-svg icon-svg--md" src="../../assets/link.svg" mode="aspectFit"></image>
+      <text class="btn-text">分享</text>
+    </button>
+  </view>
+</view>

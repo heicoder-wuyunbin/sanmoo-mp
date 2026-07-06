@@ -1,0 +1,64 @@
+<view class="container {{ nightMode ? 'night-mode' : '' }}">
+  <view class="topic-hero">
+    <view class="topic-hero-inner">
+      <view class="topic-hero-badge">专题推荐</view>
+      <view class="topic-hero-title">系统整理高频技术主题</view>
+      <view class="topic-hero-desc">
+        把后端知识拆成可连续阅读的专题，适合复习、面试与快速建立完整知识框架。
+      </view>
+    </view>
+  </view>
+
+  <view class="content-section">
+    <view class="section-header">
+      <view class="section-head-main">
+        <view class="section-mark"></view>
+        <view>
+          <view class="section-title">专题列表</view>
+          <view class="section-desc">优先强化高价值主题，普通专题轻量展示。</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="loading" wx:if="{{ loading }}">
+      <text>加载中…</text>
+    </view>
+
+    <view class="empty" wx:elif="{{ isEmpty }}">
+      <text class="empty-image">0</text>
+      <text class="empty-title">暂无专题</text>
+      <text class="empty-desc">专题正在持续更新中</text>
+    </view>
+
+    <view class="topic-list" wx:else>
+      <view
+        class="topic-card {{index === 0 ? 'topic-card--featured' : ''}}"
+        wx:for="{{ topics }}"
+        wx:key="id"
+        wx:for-index="index"
+        data-id="{{ item.id }}"
+        bindtap="goToTopicDetail"
+      >
+        <view class="topic-cover {{index === 0 ? 'topic-cover--featured' : ''}}">
+          <image wx:if="{{ item.cover }}" src="{{ item.cover }}" mode="aspectFill"></image>
+          <view wx:else class="topic-cover-fallback">
+            <text class="topic-cover-fallback-title">{{ item.title }}</text>
+          </view>
+        </view>
+        <view class="topic-info">
+          <view class="topic-topline">
+            <view class="topic-badge" wx:if="{{ index === 0 }}">重点专题</view>
+            <text class="topic-time">{{ item.createTime ? item.createTime.slice(0, 10) : '' }}</text>
+          </view>
+          <text class="topic-desc">
+            {{ item.description ? item.description : '围绕同一主题持续整理文章，适合连续阅读。' }}
+          </text>
+          <view class="topic-footer">
+            <text class="topic-count">共 {{ item.articleCount }} 篇</text>
+            <text class="topic-enter">进入专题</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

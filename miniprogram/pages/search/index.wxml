@@ -1,0 +1,143 @@
+<!-- ============================================================
+     搜索页 - 技术博客极简风格
+     ============================================================ -->
+<view class="container search-page {{ nightMode ? 'night-mode' : '' }}">
+
+  <!-- ============ Hero 头部区 ============ -->
+  <view class="page-hero">
+    <view class="hero-brand">
+      <image class="icon-svg icon-svg--white" src="../../assets/search.svg" mode="aspectFit"></image>
+    </view>
+    <text class="hero-title">搜索</text>
+    <text class="hero-subtitle">在文章、标签与分类中查找内容</text>
+    <view class="hero-cut"></view>
+  </view>
+
+  <!-- ============ 悬浮搜索框 ============ -->
+  <view class="search-float-card">
+    <view class="search-input-wrap">
+      <image class="icon-svg icon-svg--muted" src="../../assets/search.svg" mode="aspectFit"></image>
+      <input
+        class="search-input"
+        type="text"
+        placeholder="输入关键词，例如：架构、性能…"
+        placeholder-class="search-placeholder"
+        value="{{ searchKeyword }}"
+        bindinput="onKeywordChange"
+        bindconfirm="search"
+        focus="{{ true }}"
+      />
+      <view wx:if="{{ searchKeyword }}" class="clear-btn" catchtap="clearKeyword">
+        <text class="clear-icon">×</text>
+      </view>
+    </view>
+    <view class="search-btn" bindtap="search">
+      <text class="search-btn-text">搜索</text>
+    </view>
+  </view>
+
+  <!-- ============ 搜索结果区 ============ -->
+  <view wx:if="{{ showResults }}" class="results-section">
+
+    <!-- 加载中 -->
+    <view wx:if="{{ loading }}" class="loading-state">
+      <text class="loading-text">正在搜索…</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:elif="{{ isEmpty }}" class="empty-state">
+      <text class="empty-big-num">0</text>
+      <text class="empty-title">未找到相关内容</text>
+      <text class="empty-desc">换个关键词，或检查拼写是否正确</text>
+    </view>
+
+    <!-- 结果列表 -->
+    <block wx:else>
+      <view class="results-header">
+        <text class="results-label">SEARCH RESULTS</text>
+        <text class="results-count">{{ searchResults.length }} 条</text>
+      </view>
+
+      <view
+        wx:for="{{ searchResults }}"
+        wx:key="id"
+        class="result-card"
+        data-id="{{ item.id }}"
+        bindtap="goToArticleDetail"
+      >
+        <view class="result-head">
+          <text class="result-category">{{ item.categoryName || 'Tech' }}</text>
+          <text class="result-date">{{ item.createTime ? item.createTime.slice(0, 10) : '' }}</text>
+        </view>
+        <text class="result-title">{{ item.title }}</text>
+        <text wx:if="{{ item.description }}" class="result-excerpt">{{ item.description }}</text>
+        <view class="result-foot">
+          <view class="result-meta">
+            <text class="meta-read">阅读 {{ item.readNum || 0 }}</text>
+          </view>
+          <view class="result-cta">
+            <text>阅读</text>
+            <text class="cta-arrow">→</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- ============ 搜索建议区（未搜索时） ============ -->
+  <view wx:if="{{ !showResults }}" class="suggestions-section">
+
+    <!-- 搜索历史 -->
+    <view wx:if="{{ searchHistory.length > 0 }}" class="suggest-block">
+      <view class="suggest-head">
+        <view class="suggest-head-main">
+          <view class="suggest-mark"></view>
+          <text class="suggest-title">搜索历史</text>
+        </view>
+        <view class="suggest-clear" catchtap="clearSearchHistory">
+          <text>清空</text>
+        </view>
+      </view>
+      <view class="pill-list">
+        <view
+          wx:for="{{ searchHistory }}"
+          wx:key="index"
+          class="keyword-pill"
+          data-keyword="{{ item }}"
+          bindtap="selectHistory"
+        >
+          <text class="pill-text">{{ item }}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 热门搜索 -->
+    <view class="suggest-block">
+      <view class="suggest-head">
+        <view class="suggest-head-main">
+          <view class="suggest-mark suggest-mark--alt"></view>
+          <text class="suggest-title">热门搜索</text>
+        </view>
+      </view>
+      <view class="pill-list">
+        <view
+          wx:for="{{ hotKeywords }}"
+          wx:key="index"
+          class="keyword-pill keyword-pill--hot {{ index < 3 ? 'keyword-pill--top' + (index + 1) : '' }}"
+          data-keyword="{{ item }}"
+          bindtap="selectHotKeyword"
+        >
+          <text wx:if="{{ index < 3 }}" class="pill-rank pill-rank--{{ index + 1 }}">{{ index + 1 }}</text>
+          <text class="pill-text">{{ item }}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- ============ 回到顶部悬浮按钮 ============ -->
+  <view class="back-top-btn {{ showBackTop ? 'show' : '' }}" bindtap="scrollToTop">
+    <text class="back-top-icon">↑</text>
+  </view>
+
+</view>

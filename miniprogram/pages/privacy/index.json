@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "隐私政策",
+  "usingComponents": {
+    "mp-html": "/components/mp-html/index"
+  }
+}

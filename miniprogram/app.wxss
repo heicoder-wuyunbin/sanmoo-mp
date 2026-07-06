@@ -1,0 +1,412 @@
+/* ============================================================
+   Sanmoo Blog - 技术博客小程序全局样式系统
+   设计风格：极简 · 专业 · 技术感
+   核心原则：充足留白 · 清晰层级 · 克制色彩
+   ============================================================ */
+
+:root {
+  /* ---------- 核心色板：深色技术基调 ---------- */
+  --color-ink-900: #0f172a;
+  --color-ink-800: #1e293b;
+  --color-ink-700: #334155;
+  --color-ink-600: #475569;
+  --color-ink-500: #64748b;
+  --color-ink-400: #94a3b8;
+  --color-ink-300: #cbd5e1;
+  --color-ink-200: #e2e8f0;
+  --color-ink-100: #f1f5f9;
+  --color-ink-50:  #f8fafc;
+
+  /* ---------- 品牌强调色：Sky / Cyan ---------- */
+  --color-sky-700: #0369a1;
+  --color-sky-600: #0284c7;
+  --color-sky-500: #0ea5e9;
+  --color-sky-400: #38bdf8;
+  --color-sky-100: #e0f2fe;
+  --color-sky-50:  #f0f9ff;
+
+  /* ---------- 功能色 ---------- */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger:  #dc2626;
+
+  /* ---------- 语义映射 ---------- */
+  --bg-page:        var(--color-ink-50);
+  --bg-surface:     #ffffff;
+  --bg-muted:       var(--color-ink-100);
+  --bg-subtle:      #fafbfc;
+
+  --text-primary:   var(--color-ink-900);
+  --text-regular:   var(--color-ink-700);
+  --text-muted:     var(--color-ink-500);
+  --text-subtle:    var(--color-ink-400);
+  --text-inverse:   #ffffff;
+
+  --border-strong:  var(--color-ink-200);
+  --border-regular: #eef2f7;
+  --border-subtle:  #f4f6fa;
+
+  --accent:         var(--color-sky-600);
+  --accent-strong:  var(--color-sky-700);
+  --accent-soft:    var(--color-sky-50);
+  --accent-text:    var(--color-sky-600);
+
+  /* ---------- 代码块配色：类 VS Code 深色 ---------- */
+  --code-bg:        #1e293b;
+  --code-text:      #cbd5e1;
+  --code-keyword:   #f472b6;
+  --code-string:    #86efac;
+  --code-number:    #fbbf24;
+  --code-comment:   #64748b;
+  --code-function:  #7dd3fc;
+
+  /* ---------- 阴影系统：克制而有层次 ---------- */
+  --shadow-sm:      0 1rpx 2rpx rgba(15, 23, 42, 0.04);
+  --shadow-card:    0 2rpx 8rpx rgba(15, 23, 42, 0.04),
+                    0 4rpx 16rpx rgba(15, 23, 42, 0.04);
+  --shadow-elevated: 0 8rpx 24rpx rgba(15, 23, 42, 0.08),
+                     0 2rpx 6rpx rgba(15, 23, 42, 0.04);
+  --shadow-modal:   0 20rpx 60rpx rgba(15, 23, 42, 0.18);
+
+  /* ---------- 圆角系统 ---------- */
+  --radius-xs: 8rpx;
+  --radius-sm: 12rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 20rpx;
+  --radius-xl: 28rpx;
+  --radius-pill: 999rpx;
+
+  /* ---------- 间距系统（基于 8rpx 倍数） ---------- */
+  --space-1:  8rpx;
+  --space-2:  16rpx;
+  --space-3:  24rpx;
+  --space-4:  32rpx;
+  --space-5:  40rpx;
+  --space-6:  48rpx;
+  --space-8:  64rpx;
+
+  /* ---------- 字号系统 ---------- */
+  --font-xs:   22rpx;
+  --font-sm:   24rpx;
+  --font-base: 28rpx;
+  --font-md:   30rpx;
+  --font-lg:   34rpx;
+  --font-xl:   40rpx;
+  --font-2xl:  48rpx;
+  --font-3xl:  56rpx;
+}
+
+/* ===================== 页面基础 ===================== */
+page {
+  background: var(--bg-page);
+  color: var(--text-regular);
+  font-size: var(--font-base);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.2rpx;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-page);
+}
+
+/* ===================== 卡片 ===================== */
+.card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  border: 1rpx solid var(--border-regular);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.card:active {
+  box-shadow: var(--shadow-card);
+}
+
+/* ===================== 区块标题 ===================== */
+.section-title {
+  margin: 0;
+  font-size: var(--font-xl);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5rpx;
+}
+
+.section-subtitle {
+  margin-top: var(--space-1);
+  font-size: var(--font-sm);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ===================== 标签/徽章 ===================== */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 44rpx;
+  padding: 0 var(--space-2);
+  margin: 0 var(--space-1) var(--space-1) 0;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: var(--color-sky-700);
+  background: var(--accent-soft);
+  letter-spacing: 0.3rpx;
+}
+
+.badge-muted {
+  display: inline-flex;
+  align-items: center;
+  height: 40rpx;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  background: var(--bg-muted);
+  font-weight: 500;
+}
+
+/* ===================== 元信息行 ===================== */
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.meta-dot {
+  width: 4rpx;
+  height: 4rpx;
+  border-radius: 50%;
+  background: var(--color-ink-300);
+}
+
+/* ===================== 空状态 ===================== */
+.empty {
+  text-align: center;
+  padding: var(--space-8) var(--space-3);
+  color: var(--text-subtle);
+  font-size: var(--font-sm);
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: var(--space-3);
+  opacity: 0.5;
+}
+
+/* ===================== 按钮 ===================== */
+button {
+  border-radius: var(--radius-md);
+  font-size: var(--font-base);
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-ink-900);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.btn-outline {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1rpx solid var(--border-strong);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+/* ===================== 分隔线 ===================== */
+.divider {
+  height: 1rpx;
+  background: var(--border-regular);
+  margin: var(--space-4) 0;
+}
+
+.divider-subtle {
+  height: 1rpx;
+  background: var(--border-subtle);
+  margin: var(--space-3) 0;
+}
+
+/* ===================== 代码块 ===================== */
+.code-block {
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 24rpx;
+  line-height: 1.7;
+  margin: var(--space-4) 0;
+  overflow-x: auto;
+  border: 1rpx solid rgba(255, 255, 255, 0.05);
+}
+
+.code-inline {
+  background: var(--bg-muted);
+  color: var(--color-ink-800);
+  padding: 4rpx 12rpx;
+  border-radius: var(--radius-xs);
+  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+  font-size: 24rpx;
+  border: 1rpx solid var(--border-regular);
+}
+
+/* ===================== Hero 渐变区 ===================== */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500rpx;
+  height: 500rpx;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400rpx;
+  height: 400rpx;
+  background: radial-gradient(circle, rgba(125, 211, 252, 0.15) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ===================== 加载中 ===================== */
+.loading {
+  text-align: center;
+  color: var(--text-subtle);
+  padding: var(--space-4) 0;
+  font-size: var(--font-sm);
+}
+
+/* ===================== 浮动返回顶部 ===================== */
+.back-top {
+  position: fixed;
+  right: 32rpx;
+  bottom: 180rpx;
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  background: var(--color-ink-900);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-elevated);
+  font-size: 36rpx;
+  font-weight: 600;
+  z-index: 500;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===================== 统一 Icon 样式系统 ===================== */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-svg {
+  width: 32rpx;
+  height: 32rpx;
+  object-fit: contain;
+}
+
+.icon-svg--sm {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.icon-svg--md {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.icon-svg--lg {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.icon-svg--xl {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.icon-svg--white {
+  filter: brightness(0) invert(1);
+}
+
+.icon-svg--muted {
+  opacity: 0.5;
+}
+
+/* ===================== 深色模式（全局） ===================== */
+.container.night-mode {
+  background-color: #0b1120;
+  color: #cbd5e1;
+}
+
+.container.night-mode .card {
+  background-color: #111827;
+  border-color: #1f2937;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.3);
+}
+
+.container.night-mode .section-title {
+  color: #f1f5f9;
+}
+
+.container.night-mode .section-subtitle,
+.container.night-mode .empty,
+.container.night-mode .loading {
+  color: #94a3b8;
+}
+
+.container.night-mode .tag-pill {
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+}
+
+.container.night-mode .badge-muted {
+  background: #1f2937;
+  color: #94a3b8;
+}
+
+.container.night-mode .code-inline {
+  background: #1f2937;
+  color: #e2e8f0;
+  border-color: #374151;
+}
+
+.container.night-mode .back-top {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #374151;
+}
