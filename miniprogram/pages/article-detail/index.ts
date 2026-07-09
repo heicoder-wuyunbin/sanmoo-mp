@@ -90,13 +90,13 @@ Page<DetailData, Record<string, any>>({
         this.setData({
           article: { ...article, isFavorited: false },
         })
-        wx.showToast({ title: '已取消收藏', icon: 'none' })
+        wx.showToast({ title: '已移除书签', icon: 'none' })
       } else {
         await addMpFavorite(article.id)
         this.setData({
           article: { ...article, isFavorited: true },
         })
-        wx.showToast({ title: '收藏成功', icon: 'success' })
+        wx.showToast({ title: '已添加书签', icon: 'success' })
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : '操作失败'

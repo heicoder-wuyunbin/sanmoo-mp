@@ -52,7 +52,7 @@ Page({
   clearHistory() {
     wx.showModal({
       title: '确认清空',
-      content: '确定要清空所有浏览历史吗？此操作不可恢复。',
+      content: '确定要清空所有阅读记录吗？此操作不可恢复。',
       success: async (res) => {
         if (!res.confirm) return
         wx.showLoading({ title: '清空中...', mask: true })
@@ -71,6 +71,6 @@ Page({
   },
 
   onShareAppMessage() {
-    return { title: '浏览历史', path: '/pages/history/index' }
+    return { title: '阅读记录', path: '/pages/history/index' }
   },
 })

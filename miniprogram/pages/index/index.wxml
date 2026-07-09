@@ -28,7 +28,7 @@
           <text class="eyebrow-text">BACKEND ENGINEERING</text>
         </view>
         <view class="hero-title">{{ introduction || '深度技术内容，系统学习路径' }}</view>
-        <view class="hero-desc">高质量技术文章，覆盖架构设计、系统优化、工程实践。沉淀可复用的知识体系。</view>
+        <view class="hero-desc">个人原创技术文章，覆盖架构设计、系统优化、工程实践。沉淀可复用的知识体系。</view>
 
         <view class="hero-stats">
           <view class="stat-block">
@@ -84,7 +84,7 @@
       class="article-item {{openedId === item.id ? 'is-opened' : ''}}"
     >
       <view class="swipe-actions" data-id="{{item.id}}" catchtap="addFavorite">
-        <text class="swipe-text">收藏</text>
+        <text class="swipe-text">书签</text>
       </view>
 
       <view

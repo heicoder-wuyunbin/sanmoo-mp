@@ -101,7 +101,7 @@
       bindtap="toggleFavorite"
     >
       <image class="btn-icon icon-svg icon-svg--md" src="../../assets/favorite.svg" mode="aspectFit"></image>
-      <text class="btn-text">{{ article && article.isFavorited ? '已收藏' : '收藏' }}</text>
+      <text class="btn-text">{{ article && article.isFavorited ? '已添加书签' : '添加书签' }}</text>
     </button>
     <button class="action-btn action-btn--share" open-type="share">
       <image class="btn-icon icon-svg icon-svg--md" src="../../assets/link.svg" mode="aspectFit"></image>

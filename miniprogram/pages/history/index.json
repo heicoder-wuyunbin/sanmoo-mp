@@ -2,5 +2,5 @@
   "usingComponents": {
     "article-list": "../../components/article-list/index"
   },
-  "navigationBarTitleText": "浏览历史"
+  "navigationBarTitleText": "阅读记录"
 }

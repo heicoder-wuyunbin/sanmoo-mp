@@ -136,9 +136,9 @@ Page<IndexData, Record<string, any>>({
     try {
       await addMpFavorite(id)
       this.setData({ openedId: 0 })
-      wx.showToast({ title: '收藏成功', icon: 'none' })
+      wx.showToast({ title: '已添加书签', icon: 'none' })
     } catch (error) {
-      const message = error instanceof Error ? error.message : '收藏失败'
+      const message = error instanceof Error ? error.message : '添加书签失败'
       wx.showToast({ title: message, icon: 'none' })
     } finally {
       this.setData({ actionLoadingId: 0 })

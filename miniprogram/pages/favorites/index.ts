@@ -13,7 +13,7 @@ interface FavoritesData {
 const paginationBehavior = createPaginationBehavior<Article>({
   pageSize: 10,
   listKey: 'list',
-  defaultErrorMessage: '收藏列表加载失败',
+  defaultErrorMessage: '书签列表加载失败',
 })
 
 Page<FavoritesData, Record<string, any>>({
@@ -67,9 +67,9 @@ Page<FavoritesData, Record<string, any>>({
         total: Math.max(0, this.data.total - 1),
         openedId: 0,
       })
-      wx.showToast({ title: '已取消收藏', icon: 'none' })
+      wx.showToast({ title: '已移除书签', icon: 'none' })
     } catch (error) {
-      const message = error instanceof Error ? error.message : '取消收藏失败'
+      const message = error instanceof Error ? error.message : '移除书签失败'
       wx.showToast({ title: message, icon: 'none' })
     } finally {
       this.setData({ actionLoadingId: 0 })
@@ -78,7 +78,7 @@ Page<FavoritesData, Record<string, any>>({
 
   onShareAppMessage() {
     return {
-      title: '我的收藏',
+      title: '我的书签',
       path: '/pages/favorites/index',
     }
   },

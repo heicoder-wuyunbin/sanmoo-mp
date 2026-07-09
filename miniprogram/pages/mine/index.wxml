@@ -38,12 +38,12 @@
     <view class="stats-card">
       <view class="stat-col">
         <text class="stat-value">{{ favoriteCount || 0 }}</text>
-        <text class="stat-label">收藏</text>
+        <text class="stat-label">书签</text>
       </view>
       <view class="stat-divider"></view>
       <view class="stat-col">
         <text class="stat-value">{{ historyCount || 0 }}</text>
-        <text class="stat-label">已读</text>
+        <text class="stat-label">阅读记录</text>
       </view>
     </view>
   </view>
@@ -54,13 +54,13 @@
       <view class="entry-icon entry-icon--fav">
         <image class="icon-svg icon-svg--md" src="../../assets/favorite.svg" mode="aspectFit"></image>
       </view>
-      <text class="entry-text">收藏</text>
+      <text class="entry-text">书签</text>
     </view>
     <view class="entry-item" bindtap="goToHistory">
       <view class="entry-icon entry-icon--history">
         <image class="icon-svg icon-svg--md" src="../../assets/history.svg" mode="aspectFit"></image>
       </view>
-      <text class="entry-text">历史</text>
+      <text class="entry-text">阅读记录</text>
     </view>
     <view class="entry-item" bindtap="goToSearch">
       <view class="entry-icon entry-icon--search">

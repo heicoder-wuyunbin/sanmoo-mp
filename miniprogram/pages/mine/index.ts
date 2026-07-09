@@ -195,7 +195,7 @@ Page({
   handleDeleteAccount() {
     wx.showModal({
       title: '删除账户',
-      content: '此操作将永久删除您的所有个人数据（包括收藏、阅读历史等），且无法恢复。确定继续吗？',
+      content: '此操作将永久删除您的所有个人数据（包括书签、阅读记录等），且无法恢复。确定继续吗？',
       confirmText: '确定删除',
       confirmColor: '#ef4444',
       success: async (res) => {
@@ -245,7 +245,7 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: 'Sanmoo Blog - 技术分享平台',
+      title: 'Sanmoo Blog - 个人技术博客',
       path: '/pages/index/index',
       imageUrl: 'https://picsum.photos/seed/sanmoo/500/300',
     }
