@@ -81,7 +81,7 @@
     <view
       wx:for="{{articles}}"
       wx:key="id"
-      class="article-item {{openedId === item.id ? 'is-opened' : ''}}"
+      class="article-item {{expandedId === item.id ? 'is-opened' : ''}}"
     >
       <view class="swipe-actions" data-id="{{item.id}}" catchtap="addFavorite">
         <text class="swipe-text">书签</text>
