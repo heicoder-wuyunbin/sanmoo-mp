@@ -21,7 +21,7 @@
     <view
       wx:for="{{list}}"
       wx:key="id"
-      class="swipe-item {{expandedId === item.id ? 'opened' : ''}}"
+      class="swipe-item {{expanded === item.id ? 'opened' : ''}}"
     >
       <view class="swipe-actions">
         <view
@@ -34,7 +34,7 @@
       </view>
 
       <view
-        class="swipe-content {{expandedId === item.id ? 'opened' : ''}}"
+        class="swipe-content {{expanded === item.id ? 'opened' : ''}}"
         data-id="{{item.id}}"
         bindtap="goToArticleDetail"
         bindtouchstart="onItemTouchStart"

@@ -20,7 +20,7 @@ interface IndexData {
   categoriesCount: number
   actionLoadingId: number
   strategy: string
-  expandedId: number
+  expanded: number
 }
 
 const paginationBehavior = createPaginationBehavior<Article>({
@@ -40,7 +40,7 @@ Page<IndexData, Record<string, any>>({
     categoriesCount: 0,
     actionLoadingId: 0,
     strategy: 'rule',
-    expandedId: 0,
+    expanded: 0,
   },
 
   onLoad() {
@@ -122,8 +122,8 @@ Page<IndexData, Record<string, any>>({
   goToArticleDetail(event: WechatMiniprogram.BaseEvent) {
     const { id } = event.currentTarget.dataset as { id: number }
     if (!id) return
-    if (this.data.expandedId === id) {
-      this.setData({ expandedId: 0 })
+    if (this.data.expanded === id) {
+      this.setData({ expanded: 0 })
       return
     }
     wx.navigateTo({ url: `/pages/article-detail/index?id=${id}` })
@@ -135,7 +135,7 @@ Page<IndexData, Record<string, any>>({
     this.setData({ actionLoadingId: id })
     try {
       await addMpFavorite(id)
-      this.setData({ expandedId: 0 })
+      this.setData({ expanded: 0 })
       wx.showToast({ title: '已添加书签', icon: 'none' })
     } catch (error) {
       const message = error instanceof Error ? error.message : '添加书签失败'

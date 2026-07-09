@@ -5,7 +5,7 @@
  */
 export const swipeBehavior = Behavior({
   data: {
-    expandedId: 0,
+    expanded: 0,
     touchStartX: 0,
     touchItemId: 0,
   },
@@ -26,17 +26,17 @@ export const swipeBehavior = Behavior({
       if (!itemID) return
 
       if (deltaX > 28) {
-        this.setData({ expandedId: itemID })
+        this.setData({ expanded: itemID })
         return
       }
-      if (deltaX < -28 && this.data.expandedId === itemID) {
-        this.setData({ expandedId: 0 })
+      if (deltaX < -28 && this.data.expanded === itemID) {
+        this.setData({ expanded: 0 })
       }
     },
 
     closeSwipe() {
-    if (this.data.expandedId !== 0) {
-      this.setData({ expandedId: 0 })
+    if (this.data.expanded !== 0) {
+      this.setData({ expanded: 0 })
     }
   },
   },

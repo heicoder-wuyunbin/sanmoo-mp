@@ -8,7 +8,7 @@ import { navigateToArticleDetail } from '../../utils/helpers'
 interface FavoritesData {
   nightMode: boolean
   actionLoadingId: number
-  expandedId: number
+  expanded: number
 }
 
 const paginationBehavior = createPaginationBehavior<Article>({
@@ -23,7 +23,7 @@ Page<FavoritesData, Record<string, any>>({
   data: {
     nightMode: false,
     actionLoadingId: 0,
-    expandedId: 0,
+    expanded: 0,
   },
 
   onLoad() {
@@ -50,8 +50,8 @@ Page<FavoritesData, Record<string, any>>({
   goToArticleDetail(event: WechatMiniprogram.BaseEvent) {
     const { id } = event.currentTarget.dataset as { id: number }
     if (!id) return
-    if (this.data.expandedId === id) {
-      this.setData({ expandedId: 0 })
+    if (this.data.expanded === id) {
+      this.setData({ expanded: 0 })
       return
     }
     navigateToArticleDetail(id)
@@ -67,7 +67,7 @@ Page<FavoritesData, Record<string, any>>({
       this.setData({
         list,
         total: Math.max(0, this.data.total - 1),
-        expandedId: 0,
+        expanded: 0,
       })
       wx.showToast({ title: '已移除书签', icon: 'none' })
     } catch (error) {
