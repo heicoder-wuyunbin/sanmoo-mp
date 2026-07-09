@@ -9,6 +9,7 @@ interface TagsData {
   selectedTagId: number | null
   loading: boolean
   nightMode: boolean
+  showBackTop: boolean
 }
 
 Page<TagsData, Record<string, any>>({

@@ -11,6 +11,7 @@ interface CategoriesData {
   loading: boolean
   touchStartX: number
   touchEndX: number
+  showBackTop: boolean
 }
 
 Page<CategoriesData, Record<string, any>>({

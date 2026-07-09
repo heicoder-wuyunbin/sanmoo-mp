@@ -3,14 +3,26 @@ import { backTopBehavior } from '../../behaviors/back-top'
 import { createPaginationBehavior } from '../../behaviors/pagination'
 import { navigateToArticleDetail } from '../../utils/helpers'
 import { syncNightModeToPage } from '../../utils/night-mode'
+import { Article } from '../../types/blog'
 
-const paginationBehavior = createPaginationBehavior({
+interface HistoryData {
+  nightMode: boolean
+  isEmpty: boolean
+  showBackTop: boolean
+  list: Article[]
+  page: number
+  size: number
+  total: number
+  loading: boolean
+}
+
+const paginationBehavior = createPaginationBehavior<Article>({
   pageSize: 20,
   listKey: 'list',
   defaultErrorMessage: '历史记录加载失败',
 })
 
-Page({
+Page<HistoryData>({
   behaviors: [backTopBehavior, paginationBehavior],
 
   data: {

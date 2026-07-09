@@ -21,6 +21,14 @@ interface IndexData {
   actionLoadingId: number
   strategy: string
   expanded: number
+  touchStartX: number
+  touchItemId: number
+  showBackTop: boolean
+  articles: Article[]
+  page: number
+  size: number
+  total: number
+  loading: boolean
 }
 
 const paginationBehavior = createPaginationBehavior<Article>({

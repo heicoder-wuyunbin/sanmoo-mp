@@ -9,6 +9,14 @@ interface FavoritesData {
   nightMode: boolean
   actionLoadingId: number
   expanded: number
+  touchStartX: number
+  touchItemId: number
+  showBackTop: boolean
+  list: Article[]
+  page: number
+  size: number
+  total: number
+  loading: boolean
 }
 
 const paginationBehavior = createPaginationBehavior<Article>({

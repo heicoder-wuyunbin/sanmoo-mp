@@ -3,7 +3,16 @@ import { Article, Topic } from '../../types/blog'
 import { backTopBehavior } from '../../behaviors/back-top'
 import { navigateToArticleDetail } from '../../utils/helpers'
 
-Page({
+interface TopicDetailData {
+  topicId: number
+  topic: Topic
+  articles: Article[]
+  totalReads: number
+  loading: boolean
+  showBackTop: boolean
+}
+
+Page<TopicDetailData>({
   behaviors: [backTopBehavior],
 
   data: {
