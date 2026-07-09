@@ -27,6 +27,7 @@ Page<TopicDetailData>({
     } as Topic,
     articles: [] as Article[],
     totalReads: 0,
+    showBackTop: false,
     loading: true,
   },
 

@@ -32,6 +32,14 @@ Page<FavoritesData, Record<string, any>>({
     nightMode: false,
     actionLoadingId: 0,
     expanded: 0,
+    touchStartX: 0,
+    touchItemId: 0,
+    showBackTop: false,
+    list: [],
+    page: 1,
+    size: 10,
+    total: 0,
+    loading: false,
   },
 
   onLoad() {

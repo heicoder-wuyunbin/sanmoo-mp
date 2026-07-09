@@ -49,6 +49,14 @@ Page<IndexData, Record<string, any>>({
     actionLoadingId: 0,
     strategy: 'rule',
     expanded: 0,
+    touchStartX: 0,
+    touchItemId: 0,
+    showBackTop: false,
+    articles: [],
+    page: 1,
+    size: 10,
+    total: 0,
+    loading: false,
   },
 
   onLoad() {

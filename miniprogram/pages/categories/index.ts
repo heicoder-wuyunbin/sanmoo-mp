@@ -25,6 +25,7 @@ Page<CategoriesData, Record<string, any>>({
     loading: false,
     touchStartX: 0,
     touchEndX: 0,
+    showBackTop: false,
   },
 
   onTouchStart(event: WechatMiniprogram.TouchEvent) {

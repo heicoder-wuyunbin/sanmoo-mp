@@ -28,6 +28,12 @@ Page<HistoryData>({
   data: {
     nightMode: false,
     isEmpty: false,
+    showBackTop: false,
+    list: [],
+    page: 1,
+    size: 20,
+    total: 0,
+    loading: false,
   },
 
   onLoad() {

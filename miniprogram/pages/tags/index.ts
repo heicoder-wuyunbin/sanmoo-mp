@@ -21,6 +21,7 @@ Page<TagsData, Record<string, any>>({
     selectedTagId: null,
     loading: false,
     nightMode: false,
+    showBackTop: false,
   },
 
   onLoad() {
