@@ -8,6 +8,7 @@ import { navigateToArticleDetail } from '../../utils/helpers'
 interface FavoritesData {
   nightMode: boolean
   actionLoadingId: number
+  openedId: number
 }
 
 const paginationBehavior = createPaginationBehavior<Article>({
