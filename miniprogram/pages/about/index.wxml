@@ -68,6 +68,27 @@
       </view>
     </view>
 
+    <!-- 备案信息展示 -->
+    <view class="section-card" wx:if="{{filingInfo && filingInfo.icpCode}}">
+      <view class="section-head">
+        <view class="section-mark section-mark--primary"></view>
+        <view class="section-texts">
+          <text class="section-name">备案信息</text>
+          <text class="section-caption">Filing Information</text>
+        </view>
+      </view>
+      <view class="filing-info">
+        <navigator url="{{filingInfo.filingUrl || 'https://beian.miit.gov.cn/'}}" open-type="open-safety-app" class="filing-item">
+          <text class="filing-label">ICP 备案号：</text>
+          <text class="filing-value">{{filingInfo.icpCode}}</text>
+        </navigator>
+        <view class="filing-item" wx:if="{{filingInfo.recordType}}">
+          <text class="filing-label">备案类型：</text>
+          <text class="filing-value">{{filingInfo.recordType}}</text>
+        </view>
+      </view>
+    </view>
+
     <view class="declaration">
       <text>© 2023-2026 Sanmoo Blog. All rights reserved.</text>
       <text class="declaration-desc">以简约、自然、确定的方式沉淀长期技术价值。</text>

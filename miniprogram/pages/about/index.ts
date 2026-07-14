@@ -1,5 +1,44 @@
 // miniprogram/pages/about/index.ts
-Page({
+import { getMpCompliance } from '../../api/mp'
+
+interface FilingInfo {
+  icpCode: string
+  filingUrl: string
+  recordType: string
+}
+
+interface ContactInfo {
+  email: string
+  wechat: string
+  github: string
+}
+
+interface AboutData {
+  nightMode: boolean
+  authorInfo: {
+    name: string
+    title: string
+    introduction: string
+    avatar: string
+  }
+  blogInfo: {
+    name: string
+    description: string
+  }
+  filingInfo: FilingInfo | null
+  contactInfo: ContactInfo | null
+}
+
+const parseJson = <T>(str: string): T | null => {
+  if (!str) return null
+  try {
+    return JSON.parse(str) as T
+  } catch {
+    return null
+  }
+}
+
+Page<AboutData, Record<string, any>>({
   data: {
     nightMode: false,
     authorInfo: {
@@ -11,15 +50,37 @@ Page({
     blogInfo: {
       name: 'Sanmoo Blog',
       description: '后端艺术 (BackendArt) - 探索技术，记录成长'
+    },
+    filingInfo: null,
+    contactInfo: null
+  },
+
+  onLoad() {
+    void this.fetchCompliance()
+  },
+
+  async fetchCompliance() {
+    try {
+      const res = await getMpCompliance()
+      if (res?.filingInfo) {
+        this.setData({ filingInfo: parseJson<FilingInfo>(res.filingInfo) })
+      }
+      if (res?.contactInfo) {
+        this.setData({ contactInfo: parseJson<ContactInfo>(res.contactInfo) })
+      }
+    } catch (error) {
+      console.error('获取合规信息失败:', error)
     }
   },
 
   copyWechat() {
-    this.copyToClipboard('SanmooBlog', '微信号已复制')
+    const wechat = this.data.contactInfo?.wechat || 'SanmooBlog'
+    this.copyToClipboard(wechat, '微信号已复制')
   },
 
   goToGithub() {
-    this.copyToClipboard('https://github.com/heicoder-wuyunbin', 'GitHub 链接已复制')
+    const github = this.data.contactInfo?.github || 'heicoder-wuyunbin'
+    this.copyToClipboard(`https://github.com/${github}`, 'GitHub 链接已复制')
   },
 
   goToCSDN() {
