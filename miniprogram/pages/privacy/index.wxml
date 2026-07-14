@@ -13,7 +13,7 @@
         <view class="section-mark section-mark--alt"></view>
         <view class="section-texts">
           <text class="section-name">政策条款</text>
-          <text class="section-caption">Terms & Privacy</text>
+          <text class="section-caption">Privacy Policy</text>
         </view>
       </view>
 
@@ -22,9 +22,9 @@
           <text class="loading-text">加载中…</text>
         </view>
       </block>
-      <block wx:elif="{{ content }}">
+      <block wx:elif="{{ privacyPolicy }}">
         <view class="policy-content">
-          <mp-html content="{{ content }}" />
+          <mp-html content="{{ privacyPolicy }}" />
         </view>
       </block>
       <block wx:else>
@@ -32,6 +32,32 @@
           <text class="empty-text">暂无隐私政策内容</text>
         </view>
       </block>
+    </view>
+
+    <view class="section-card" wx:if="{{ dataRetentionPolicy }}">
+      <view class="section-head">
+        <view class="section-mark"></view>
+        <view class="section-texts">
+          <text class="section-name">数据保留说明</text>
+          <text class="section-caption">Data Retention</text>
+        </view>
+      </view>
+      <view class="policy-content">
+        <mp-html content="{{ dataRetentionPolicy }}" />
+      </view>
+    </view>
+
+    <view class="section-card" wx:if="{{ accountDeletionGuide }}">
+      <view class="section-head">
+        <view class="section-mark"></view>
+        <view class="section-texts">
+          <text class="section-name">账号注销说明</text>
+          <text class="section-caption">Account Deletion</text>
+        </view>
+      </view>
+      <view class="policy-content">
+        <mp-html content="{{ accountDeletionGuide }}" />
+      </view>
     </view>
 
     <view class="declaration">

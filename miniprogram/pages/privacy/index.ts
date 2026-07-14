@@ -1,30 +1,51 @@
-import { request } from '../../api/request'
+import { getMpCompliance } from '../../api/mp'
 
 interface PrivacyData {
   nightMode: boolean
   loading: boolean
-  content: string
+  privacyPolicy: string
+  dataRetentionPolicy: string
+  accountDeletionGuide: string
+}
+
+const parseJson = <T>(str: string): T | null => {
+  if (!str) return null
+  try {
+    return JSON.parse(str) as T
+  } catch {
+    return null
+  }
 }
 
 Page<PrivacyData, Record<string, any>>({
   data: {
     nightMode: false,
     loading: true,
-    content: '',
+    privacyPolicy: '',
+    dataRetentionPolicy: '',
+    accountDeletionGuide: '',
   },
 
   onLoad() {
-    void this.fetchPrivacyPolicy()
+    void this.fetchCompliance()
   },
 
-  async fetchPrivacyPolicy() {
+  async fetchCompliance() {
     this.setData({ loading: true })
     try {
-      const res = await request<{ content: string }>('/mp/privacy-policy', 'GET')
-      this.setData({ content: res?.content || '' })
+      const res = await getMpCompliance()
+      this.setData({
+        privacyPolicy: res?.privacyPolicy || '',
+        dataRetentionPolicy: res?.dataRetentionPolicy || '',
+        accountDeletionGuide: res?.accountDeletionGuide || '',
+      })
     } catch (error) {
-      console.error('获取隐私政策失败:', error)
-      this.setData({ content: '' })
+      console.error('获取合规信息失败:', error)
+      this.setData({
+        privacyPolicy: '',
+        dataRetentionPolicy: '',
+        accountDeletionGuide: '',
+      })
     } finally {
       this.setData({ loading: false })
     }

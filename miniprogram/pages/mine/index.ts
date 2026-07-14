@@ -1,4 +1,4 @@
-import { ensureMpOpenid, getMpBrowseHistory, getMpFavorites, getMpSettings, getMpUserProfile, updateMpUserProfile, request, setMpSubscribe, getMpSubscribeStatus } from '../../api/mp'
+import { ensureMpOpenid, getMpBrowseHistory, getMpFavorites, getMpSettings, getMpUserProfile, updateMpUserProfile, setMpSubscribe, getMpSubscribeStatus, deleteMpUserAccount } from '../../api/mp'
 import { STORAGE_KEYS } from '../../api/config'
 import { setNightMode } from '../../utils/night-mode'
 
@@ -203,7 +203,7 @@ Page({
 
         wx.showLoading({ title: '处理中...', mask: true })
         try {
-          await request('/mp/user', 'DELETE')
+          await deleteMpUserAccount()
           wx.hideLoading()
           wx.clearStorageSync()
           wx.showToast({ title: '账户已删除', icon: 'success' })

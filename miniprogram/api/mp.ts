@@ -19,7 +19,10 @@ export {
   updateMpUserProfile,
   setMpSubscribe,
   getMpSubscribeStatus,
+  getMpCompliance,
+  deleteMpUserAccount,
   type MpUserProfile,
+  type MpComplianceInfo,
 } from './user-api'
 
 // 文章（列表、详情、推荐、分类文章、标签文章）

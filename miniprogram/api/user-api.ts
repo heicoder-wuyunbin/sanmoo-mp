@@ -93,3 +93,21 @@ export function getMpSubscribeStatus(): Promise<{ subscribe: boolean }> {
     { requireOpenid: true },
   )
 }
+
+// ─── 合规信息 ────────────────────────────────────────────────
+
+export interface MpComplianceInfo {
+  privacyPolicy: string
+  filingInfo: string
+  contactInfo: string
+  dataRetentionPolicy: string
+  accountDeletionGuide: string
+}
+
+export function getMpCompliance(): Promise<MpComplianceInfo> {
+  return request<MpComplianceInfo>('/mp/compliance', 'GET')
+}
+
+export function deleteMpUserAccount(): Promise<void> {
+  return request<void>('/mp/user', 'DELETE', undefined, { requireOpenid: true })
+}
