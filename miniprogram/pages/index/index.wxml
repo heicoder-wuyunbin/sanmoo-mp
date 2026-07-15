@@ -22,15 +22,7 @@
         </view>
       </view>
 
-      <view class="hero-content">
-        <view class="hero-eyebrow">
-          <view class="eyebrow-dot"></view>
-          <text class="eyebrow-text">BACKEND ENGINEERING</text>
-        </view>
-        <view class="hero-title">{{ introduction || '深度技术内容，系统学习路径' }}</view>
-        <view class="hero-desc">个人原创技术文章，覆盖架构设计、系统优化、工程实践。沉淀可复用的知识体系。</view>
-
-        <view class="hero-stats">
+        <view class="hero-title">{{ introduction || '个人原创技术内容' }}</view>
           <view class="stat-block">
             <text class="stat-num">{{ total || 0 }}</text>
             <text class="stat-label">文章</text>
@@ -69,7 +61,7 @@
         <view class="section-mark"></view>
         <view class="section-texts">
           <text class="section-name">推荐阅读</text>
-          <text class="section-caption">Editor's Picks</text>
+          <text class="section-caption">最新发布</text>
         </view>
       </view>
     </view>
@@ -96,7 +88,7 @@
       >
         <!-- 置顶/特色标签 -->
         <view wx:if="{{idx === 0 || item.isTop}}" class="article-ribbon">
-          <text>{{ idx === 0 ? 'EDITOR PICK' : 'TOP' }}</text>
+          <text>{{ idx === 0 ? 'TOP' : 'TOP' }}</text>
         </view>
 
         <view class="article-head">

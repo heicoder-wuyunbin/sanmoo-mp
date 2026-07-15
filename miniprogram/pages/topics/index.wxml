@@ -1,10 +1,10 @@
 <view class="container {{ nightMode ? 'night-mode' : '' }}">
   <view class="topic-hero">
     <view class="topic-hero-inner">
-      <view class="topic-hero-badge">专题推荐</view>
-      <view class="topic-hero-title">系统整理高频技术主题</view>
+      <view class="topic-hero-badge">专题</view>
+      <view class="topic-hero-title">按主题分类的系列文章，适合连续阅读</view>
       <view class="topic-hero-desc">
-        把后端知识拆成可连续阅读的专题，适合复习、面试与快速建立完整知识框架。
+        按主题整理的系列文章，帮助建立系统知识体系。
       </view>
     </view>
   </view>
@@ -15,7 +15,7 @@
         <view class="section-mark"></view>
         <view>
           <view class="section-title">专题列表</view>
-          <view class="section-desc">优先强化高价值主题，普通专题轻量展示。</view>
+          <view class="section-desc"></view>
         </view>
       </view>
     </view>
@@ -47,7 +47,7 @@
         </view>
         <view class="topic-info">
           <view class="topic-topline">
-            <view class="topic-badge" wx:if="{{ index === 0 }}">重点专题</view>
+            <view class="topic-badge" wx:if="{{ index === 0 }}">精选专题</view>
             <text class="topic-time">{{ item.createTime ? item.createTime.slice(0, 10) : '' }}</text>
           </view>
           <text class="topic-desc">
