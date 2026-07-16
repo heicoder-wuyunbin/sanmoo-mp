@@ -1,4 +1,4 @@
-import { addMpBrowseHistory, addMpFavorite, getMpArticleDetail, removeMpFavorite, reportMpBehavior } from '../../api/mp'
+import { addMpBrowseHistory, addMpFavorite, getMpArticleDetail, removeMpFavorite } from '../../api/mp'
 import { ArticleDetail } from '../../types/blog'
 
 interface DetailData {
@@ -30,12 +30,7 @@ Page<DetailData, Record<string, any>>({
       wx.showToast({ title: '文章参数错误', icon: 'none' })
       return
     }
-    this.setData({ enterAt: Date.now() })
     void this.fetchDetail(id)
-  },
-
-  onUnload() {
-    void this.reportStay()
   },
 
   async fetchDetail(id: number) {
@@ -59,11 +54,6 @@ Page<DetailData, Record<string, any>>({
       })
 
       wx.setNavigationBarTitle({ title: article.title || '文章详情' })
-      void reportMpBehavior({
-        articleId: id,
-        eventType: 'view',
-        scene: 'detail',
-      })
       void addMpBrowseHistory(id)
     } catch (error) {
       const message = error instanceof Error ? error.message : '文章加载失败'
@@ -103,23 +93,6 @@ Page<DetailData, Record<string, any>>({
       wx.showToast({ title: message, icon: 'none' })
     } finally {
       this.setData({ favoriteLoading: false })
-    }
-  },
-
-  async reportStay() {
-    const article = this.data.article
-    if (!article || this.data.enterAt <= 0) return
-    const staySeconds = Math.floor((Date.now() - this.data.enterAt) / 1000)
-    if (staySeconds < 3) return
-    try {
-      await reportMpBehavior({
-        articleId: article.id,
-        eventType: 'stay',
-        staySeconds,
-        scene: 'detail',
-      })
-    } catch (error) {
-      console.error(error)
     }
   },
 

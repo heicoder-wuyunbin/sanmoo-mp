@@ -200,7 +200,7 @@
 }
 
 .topic-detail-page.night-mode .hero-title {
-  color: #f8fafc;
+  color: var(--dark-text-primary);
 }
 
 .topic-detail-page.night-mode .hero-desc {
@@ -208,60 +208,60 @@
 }
 
 .topic-detail-page.night-mode .section-name {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .topic-detail-page.night-mode .section-mark {
-  background: #7dd3fc;
+  background: var(--dark-accent);
 }
 
 .topic-detail-page.night-mode .section-desc {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .topic-detail-page.night-mode .article-card {
-  background: #0f172a;
+  background: var(--dark-bg-subtle);
   border-color: rgba(30, 41, 59, 0.8);
   box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.4),
               inset 0 1rpx 0 rgba(255, 255, 255, 0.03);
 }
 
 .topic-detail-page.night-mode .article-card:active {
-  background: #1e293b;
+  background: var(--dark-bg-elevated);
 }
 
 .topic-detail-page.night-mode .article-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .topic-detail-page.night-mode .article-excerpt {
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 .topic-detail-page.night-mode .article-category {
-  color: #7dd3fc;
+  color: var(--dark-accent);
   background: rgba(14, 165, 233, 0.15);
 }
 
 .topic-detail-page.night-mode .article-date {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .topic-detail-page.night-mode .tag-chip {
-  background: rgba(56, 189, 248, 0.15);
-  color: #7dd3fc;
+  background: var(--dark-accent-soft);
+  color: var(--dark-accent);
 }
 
 .topic-detail-page.night-mode .meta-read {
-  color: #cbd5e1;
+  color: var(--dark-text-regular);
 }
 
 .topic-detail-page.night-mode .meta-dot {
-  color: #374151;
+  color: var(--dark-border-subtle);
 }
 
 .topic-detail-page.night-mode .meta-estimate {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .topic-detail-page.night-mode .foot-cta {
@@ -273,13 +273,13 @@
 }
 
 .topic-detail-page.night-mode .empty-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .topic-detail-page.night-mode .empty-desc {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .topic-detail-page.night-mode .loading {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }

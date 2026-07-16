@@ -23,6 +23,7 @@
       </view>
 
         <view class="hero-title">{{ introduction || '个人原创技术内容' }}</view>
+        <view class="hero-stats">
           <view class="stat-block">
             <text class="stat-num">{{ total || 0 }}</text>
             <text class="stat-label">文章</text>
@@ -49,7 +50,6 @@
           </view>
         </view>
       </view>
-    </view>
     <!-- 底部装饰切角 -->
     <view class="hero-cut"></view>
   </view>
@@ -66,8 +66,10 @@
       </view>
     </view>
 
-    <view wx:if="{{articles.length === 0 && !loading}}" class="empty card">
-      <text>暂无文章</text>
+    <view wx:if="{{articles.length === 0 && !loading}}" class="empty-state">
+      <text class="empty-num">0</text>
+      <text class="empty-title">暂无文章</text>
+      <text class="empty-desc">快来看看新发布的内容</text>
     </view>
 
     <view

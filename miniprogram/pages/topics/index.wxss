@@ -334,11 +334,11 @@
 .container.night-mode .topic-hero-badge {
   background: rgba(14, 165, 233, 0.18);
   border-color: rgba(125, 211, 252, 0.25);
-  color: #7dd3fc;
+  color: var(--dark-accent);
 }
 
 .container.night-mode .topic-hero-title {
-  color: #f8fafc;
+  color: var(--dark-text-primary);
 }
 
 .container.night-mode .topic-hero-desc {
@@ -346,11 +346,11 @@
 }
 
 .container.night-mode .section-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .container.night-mode .section-desc {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .container.night-mode .section-mark {
@@ -358,14 +358,14 @@
 }
 
 .container.night-mode .topic-card {
-  background: #0f172a;
+  background: var(--dark-bg-subtle);
   border-color: rgba(30, 41, 59, 0.8);
   box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.4),
               inset 0 1rpx 0 rgba(255, 255, 255, 0.03);
 }
 
 .container.night-mode .topic-card:active {
-  background: #1e293b;
+  background: var(--dark-bg-elevated);
 }
 
 .container.night-mode .topic-card--featured {
@@ -383,26 +383,26 @@
 }
 
 .container.night-mode .topic-cover-fallback-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .container.night-mode .topic-badge {
   background: rgba(14, 165, 233, 0.15);
-  color: #38bdf8;
+  color: var(--dark-accent);
   border: 1rpx solid rgba(14, 165, 233, 0.25);
 }
 
 .container.night-mode .topic-desc {
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 .container.night-mode .topic-count {
   background: rgba(30, 41, 59, 0.6);
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 .container.night-mode .topic-time {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .container.night-mode .topic-enter {
@@ -414,17 +414,17 @@
 }
 
 .container.night-mode .empty-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .container.night-mode .empty-desc {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .container.night-mode .empty-image {
-  color: #1e293b;
+  color: var(--dark-bg-elevated);
 }
 
 .container.night-mode .loading {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }

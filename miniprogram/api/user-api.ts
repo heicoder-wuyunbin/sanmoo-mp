@@ -1,5 +1,5 @@
 /**
- * 用户资料、行为上报、设置、搜索 API
+ * 用户资料、设置、搜索 API
  */
 import { request } from './request'
 import { BlogSettingsData } from '../types/blog'
@@ -14,29 +14,6 @@ export function getMpSettings(): Promise<BlogSettingsData> {
 
 export function getMpHotSearches(): Promise<string[]> {
   return request<string[]>('/mp/search/hot', 'GET')
-}
-
-// ─── 用户行为上报 ────────────────────────────────────────────
-
-export function reportMpBehavior(data: {
-  articleId: number
-  eventType: string
-  staySeconds?: number
-  scene?: string
-  strategy?: string
-}): Promise<Record<string, never>> {
-  return request<Record<string, never>>(
-    '/mp/behavior',
-    'POST',
-    {
-      articleId: data.articleId,
-      eventType: data.eventType,
-      staySeconds: data.staySeconds || 0,
-      scene: data.scene || 'detail',
-      strategy: data.strategy || '',
-    },
-    { requireOpenid: true, hideToast: true },
-  )
 }
 
 // ─── 用户资料 ────────────────────────────────────────────────

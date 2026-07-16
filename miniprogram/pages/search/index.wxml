@@ -41,6 +41,7 @@
 
     <!-- 加载中 -->
     <view wx:if="{{ loading }}" class="loading-state">
+      <view class="loading-dot"></view>
       <text class="loading-text">正在搜索…</text>
     </view>
 

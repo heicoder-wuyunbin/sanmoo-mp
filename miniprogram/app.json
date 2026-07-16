@@ -32,25 +32,25 @@
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "assets/pic.png",
-        "selectedIconPath": "assets/pic.png"
+        "selectedIconPath": "assets/pic-active.png"
       },
       {
         "pagePath": "pages/categories/index",
         "text": "分类",
         "iconPath": "assets/category.png",
-        "selectedIconPath": "assets/category.png"
+        "selectedIconPath": "assets/category-active.png"
       },
       {
         "pagePath": "pages/topics/index",
         "text": "专题",
         "iconPath": "assets/box.png",
-        "selectedIconPath": "assets/box.png"
+        "selectedIconPath": "assets/box-active.png"
       },
       {
         "pagePath": "pages/mine/index",
         "text": "我的",
         "iconPath": "assets/account.png",
-        "selectedIconPath": "assets/account.png"
+        "selectedIconPath": "assets/account-active.png"
       }
     ]
   },

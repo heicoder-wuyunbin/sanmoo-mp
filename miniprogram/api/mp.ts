@@ -10,11 +10,10 @@ export { request } from './request'
 // OpenID 认证管理
 export { ensureMpOpenid, getStoredOpenid, setStoredOpenid } from './auth'
 
-// 设置 & 搜索 & 用户资料 & 行为上报
+// 设置 & 搜索 & 用户资料
 export {
   getMpSettings,
   getMpHotSearches,
-  reportMpBehavior,
   getMpUserProfile,
   updateMpUserProfile,
   setMpSubscribe,

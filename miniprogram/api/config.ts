@@ -1,5 +1,5 @@
-// export const API_BASE_URL = 'https://backendart.com'
-export const API_BASE_URL = 'http://localhost:28080'
+export const API_BASE_URL = 'https://backendart.com'
+// export const API_BASE_URL = 'http://localhost:28080'
 
 export const STORAGE_KEYS = {
   OPENID:         'mp_openid',

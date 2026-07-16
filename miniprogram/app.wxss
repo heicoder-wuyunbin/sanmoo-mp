@@ -96,6 +96,32 @@
   --font-3xl:  56rpx;
 }
 
+/* ---------- 深色模式变量（通过 .night-mode 切换） ---------- */
+:root {
+  /* 深色背景 */
+  --dark-bg-page:      #0b1120;
+  --dark-bg-surface:   #111827;
+  --dark-bg-elevated:  #1e293b;
+  --dark-bg-muted:     #1f2937;
+  --dark-bg-subtle:    #0f172a;
+
+  /* 深色文字 */
+  --dark-text-primary:  #f1f5f9;
+  --dark-text-regular:  #cbd5e1;
+  --dark-text-muted:    #94a3b8;
+  --dark-text-subtle:   #64748b;
+
+  /* 深色边框 */
+  --dark-border-strong: #334155;
+  --dark-border-regular: #1e293b;
+  --dark-border-subtle:  #374151;
+
+  /* 深色语义 */
+  --dark-accent:        #38bdf8;
+  --dark-accent-soft:   rgba(56, 189, 248, 0.15);
+  --dark-hero-gradient: linear-gradient(160deg, #020617 0%, #0f172a 55%, #020617 100%);
+}
+
 /* ===================== 页面基础 ===================== */
 page {
   background: var(--bg-page);
@@ -367,46 +393,59 @@ button {
   opacity: 0.5;
 }
 
-/* ===================== 深色模式（全局） ===================== */
+/* ===================== 深色模式（全局 - 变量化切换） ===================== */
 .container.night-mode {
-  background-color: #0b1120;
-  color: #cbd5e1;
+  --bg-page:        var(--dark-bg-page);
+  --bg-surface:     var(--dark-bg-surface);
+  --bg-muted:       var(--dark-bg-muted);
+  --bg-subtle:      var(--dark-bg-subtle);
+
+  --text-primary:   var(--dark-text-primary);
+  --text-regular:   var(--dark-text-regular);
+  --text-muted:     var(--dark-text-muted);
+  --text-subtle:    var(--dark-text-subtle);
+
+  --border-strong:  var(--dark-border-strong);
+  --border-regular: var(--dark-border-regular);
+  --border-subtle:  var(--dark-border-subtle);
+
+  --accent:         var(--dark-accent);
+  --accent-soft:    var(--dark-accent-soft);
+  --accent-text:    var(--dark-accent);
+  background-color: var(--bg-page);
+  color: var(--text-regular);
 }
 
 .container.night-mode .card {
-  background-color: #111827;
-  border-color: #1f2937;
+  background-color: var(--bg-surface);
+  border-color: var(--border-regular);
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.3);
-}
-
-.container.night-mode .section-title {
-  color: #f1f5f9;
 }
 
 .container.night-mode .section-subtitle,
 .container.night-mode .empty,
 .container.night-mode .loading {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .container.night-mode .tag-pill {
-  background: rgba(56, 189, 248, 0.15);
-  color: #7dd3fc;
+  background: var(--accent-soft);
+  color: var(--dark-accent);
 }
 
 .container.night-mode .badge-muted {
-  background: #1f2937;
-  color: #94a3b8;
+  background: var(--dark-bg-muted);
+  color: var(--dark-text-muted);
 }
 
 .container.night-mode .code-inline {
-  background: #1f2937;
-  color: #e2e8f0;
-  border-color: #374151;
+  background: var(--dark-bg-muted);
+  color: var(--dark-text-primary);
+  border-color: var(--dark-border-subtle);
 }
 
 .container.night-mode .back-top {
-  background: #1e293b;
-  color: #f1f5f9;
-  border-color: #374151;
+  background: var(--dark-bg-elevated);
+  color: var(--dark-text-primary);
+  border-color: var(--dark-border-subtle);
 }

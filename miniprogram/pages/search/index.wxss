@@ -270,12 +270,30 @@
 /* 加载状态 */
 .loading-state {
   padding: 80rpx 32rpx;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24rpx;
+}
+
+.loading-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #0ea5e9;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 .loading-text {
   font-size: 26rpx;
   color: #94a3b8;
+  letter-spacing: 2rpx;
 }
 
 /* 空状态 */
@@ -531,19 +549,19 @@
 
 /* ============ 深色模式适配 ============ */
 .search-page.night-mode {
-  background: #0b1120;
+  background: var(--dark-bg-page);
 }
 
 .search-page.night-mode .page-hero {
-  background: linear-gradient(160deg, #020617 0%, #0f172a 55%, #020617 100%);
+  background: var(--dark-hero-gradient);
 }
 
 .search-page.night-mode .hero-cut {
-  background: linear-gradient(to bottom right, transparent 49.5%, #0b1120 50%);
+  background: linear-gradient(to bottom right, transparent 49.5%, var(--dark-bg-page) 50%);
 }
 
 .search-page.night-mode .search-float-card {
-  background: #0f172a;
+  background: var(--dark-bg-subtle);
   box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
 }
 
@@ -552,19 +570,19 @@
 }
 
 .search-page.night-mode .search-input {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .search-page.night-mode .search-placeholder {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .search-page.night-mode .clear-btn {
-  background: #334155;
+  background: var(--dark-border-strong);
 }
 
 .search-page.night-mode .clear-icon {
-  color: #cbd5e1;
+  color: var(--dark-text-regular);
 }
 
 .search-page.night-mode .search-btn {
@@ -576,93 +594,93 @@
 }
 
 .search-page.night-mode .results-label {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .search-page.night-mode .results-count {
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 .search-page.night-mode .result-card {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-regular);
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.2);
 }
 
 .search-page.night-mode .result-category {
   background: rgba(14, 165, 233, 0.15);
-  color: #7dd3fc;
+  color: var(--dark-accent);
 }
 
 .search-page.night-mode .result-date {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .search-page.night-mode .result-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .search-page.night-mode .result-excerpt {
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 .search-page.night-mode .result-foot {
-  border-top-color: #1e293b;
+  border-top-color: var(--dark-border-regular);
 }
 
 .search-page.night-mode .meta-read {
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 .search-page.night-mode .result-cta {
-  color: #38bdf8;
+  color: var(--dark-accent);
 }
 
 .search-page.night-mode .empty-state {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-regular);
 }
 
 .search-page.night-mode .empty-big-num {
-  color: #1e293b;
+  color: var(--dark-bg-elevated);
 }
 
 .search-page.night-mode .empty-title {
-  color: #e2e8f0;
+  color: var(--dark-text-regular);
 }
 
 .search-page.night-mode .empty-desc {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .search-page.night-mode .loading-text {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .search-page.night-mode .suggest-block {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-regular);
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.2);
 }
 
 .search-page.night-mode .suggest-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .search-page.night-mode .suggest-mark {
-  background: #7dd3fc;
+  background: var(--dark-accent);
 }
 
 .search-page.night-mode .suggest-clear {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .search-page.night-mode .keyword-pill {
-  background: #1e293b;
+  background: var(--dark-bg-elevated);
 }
 
 .search-page.night-mode .keyword-pill .pill-text {
-  color: #cbd5e1;
+  color: var(--dark-text-regular);
 }
 
 .search-page.night-mode .keyword-pill--hot {

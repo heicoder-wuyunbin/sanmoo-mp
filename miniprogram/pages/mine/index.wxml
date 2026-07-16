@@ -1,3 +1,7 @@
+<wxs module="utils">
+var d = getDate()
+module.exports = { year: d.getFullYear() }
+</wxs>
 <view class="container mine-page {{ nightMode ? 'night-mode' : '' }}">
   <!-- ============ 顶部区域：深色沉浸 ============ -->
   <view class="profile-hero">
@@ -188,7 +192,7 @@
 
   <!-- ============ 版权信息 ============ -->
   <view class="copyright">
-    <text class="copyright-text">Sanmoo Blog © 2025 </text>
+    <text class="copyright-text">Sanmoo Blog © {{utils.year}} </text>
   </view>
 
   <!-- ============ 授权弹窗 ============ -->

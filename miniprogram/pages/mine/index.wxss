@@ -414,21 +414,21 @@
 
 /* ============ 深色模式适配 ============ */
 .mine-page.night-mode {
-  background: #0b1120;
+  background: var(--dark-bg-page);
 }
 
 .mine-page.night-mode .profile-hero {
-  background: linear-gradient(160deg, #020617 0%, #0f172a 55%, #020617 100%);
+  background: var(--dark-hero-gradient);
 }
 
 .mine-page.night-mode .quick-entry {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-regular);
   box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.3);
 }
 
 .mine-page.night-mode .entry-text {
-  color: #cbd5e1;
+  color: var(--dark-text-regular);
 }
 
 .mine-page.night-mode .entry-icon--fav {
@@ -464,29 +464,29 @@
 }
 
 .mine-page.night-mode .section-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .mine-page.night-mode .section-caption {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .mine-page.night-mode .menu-card {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-regular);
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.2);
 }
 
 .mine-page.night-mode .menu-title {
-  color: #e2e8f0;
+  color: var(--dark-text-regular);
 }
 
 .mine-page.night-mode .menu-desc {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .mine-page.night-mode .menu-arrow {
-  color: #475569;
+  color: var(--dark-text-subtle);
 }
 
 .mine-page.night-mode .menu-icon--moon-light {
@@ -514,11 +514,11 @@
 }
 
 .mine-page.night-mode .menu-divider {
-  background: #1e293b;
+  background: var(--dark-border-regular);
 }
 
 .mine-page.night-mode .copyright-text {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 /* ============ 授权弹窗 ============ */
@@ -754,34 +754,34 @@
 
 /* ============ 深色模式 - 弹窗 ============ */
 .mine-page.night-mode .auth-modal {
-  background: #1e293b;
+  background: var(--dark-bg-elevated);
 }
 
 .mine-page.night-mode .modal-header {
-  border-bottom-color: #334155;
+  border-bottom-color: var(--dark-border-strong);
 }
 
 .mine-page.night-mode .modal-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .mine-page.night-mode .modal-close {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .mine-page.night-mode .avatar-upload-btn {
-  border-color: #334155;
-  background: #0f172a;
+  border-color: var(--dark-border-strong);
+  background: var(--dark-bg-subtle);
 }
 
 .mine-page.night-mode .upload-avatar-placeholder text {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .mine-page.night-mode .nickname-input {
-  background: #0f172a;
-  border-color: #334155;
-  color: #f1f5f9;
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-strong);
+  color: var(--dark-text-primary);
 }
 
 .mine-page.night-mode .nickname-input:focus {
@@ -789,13 +789,13 @@
 }
 
 .mine-page.night-mode .modal-footer {
-  border-top-color: #334155;
+  border-top-color: var(--dark-border-strong);
 }
 
 .mine-page.night-mode .modal-btn--cancel {
-  background: #0f172a;
-  color: #94a3b8;
-  border-right-color: #334155;
+  background: var(--dark-bg-subtle);
+  color: var(--dark-text-muted);
+  border-right-color: var(--dark-border-strong);
 }
 
 .mine-page.night-mode .login-btn {

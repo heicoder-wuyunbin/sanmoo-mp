@@ -9,10 +9,9 @@
 /* ============ Hero 区 ============ */
 .hero {
   position: relative;
-  padding: 20rpx 40rpx 80rpx;
+  padding: 40rpx 40rpx 80rpx;
   color: #f8fafc;
   margin-bottom: -40rpx;
-  margin-top: -20rpx;
 }
 
 .hero-inner {
@@ -570,6 +569,57 @@
   font-family: 'SF Mono', 'Menlo', monospace;
 }
 
+/* ============ 空状态 ============ */
+.empty-state {
+  padding: 80rpx 32rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  border: 1rpx solid #e2e8f0;
+}
+
+.empty-num {
+  font-size: 120rpx;
+  font-weight: 700;
+  color: #e2e8f0;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  line-height: 1;
+  letter-spacing: -2rpx;
+  margin-bottom: 8rpx;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #334155;
+}
+
+.empty-desc {
+  font-size: 26rpx;
+  color: #94a3b8;
+}
+
+.home-page.night-mode .empty-state {
+  background: var(--dark-bg-subtle);
+  border-color: var(--dark-border-regular);
+}
+
+.home-page.night-mode .empty-num {
+  color: var(--dark-bg-elevated);
+}
+
+.home-page.night-mode .empty-title {
+  color: var(--dark-text-primary);
+}
+
+.home-page.night-mode .empty-desc {
+  color: var(--dark-text-muted);
+}
+
 /* ============ 返回顶部按钮 ============ */
 .back-top {
   position: fixed;
@@ -613,70 +663,70 @@
   transform: scale(0.92);
 }
 
-/* ============ 深色模式适配 ============ */
+/* ============ 深色模式适配（变量化） ============ */
 .home-page.night-mode .section-name {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .home-page.night-mode .section-mark {
-  background: #7dd3fc;
+  background: var(--dark-accent);
 }
 
 .home-page.night-mode .article-card {
-  background: #111827;
-  border-color: #1f2937;
+  background: var(--dark-bg-surface);
+  border-color: var(--dark-border-regular);
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.3);
 }
 
 .home-page.night-mode .article-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .home-page.night-mode .article-excerpt {
-  color: #cbd5e1;
+  color: var(--dark-text-regular);
 }
 
 .home-page.night-mode .article-category {
-  color: #7dd3fc;
+  color: var(--dark-accent);
 }
 
 .home-page.night-mode .article-date,
 .home-page.night-mode .meta-estimate {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .home-page.night-mode .meta-read {
-  color: #cbd5e1;
+  color: var(--dark-text-regular);
 }
 
 .home-page.night-mode .meta-dot {
-  color: #374151;
+  color: var(--dark-border-subtle);
 }
 
 .home-page.night-mode .tag-chip {
-  background: rgba(56, 189, 248, 0.15);
-  color: #7dd3fc;
+  background: var(--dark-accent-soft);
+  color: var(--dark-accent);
 }
 
 .home-page.night-mode .foot-cta {
-  color: #38bdf8;
+  color: var(--dark-accent);
 }
 
 .home-page.night-mode .article-foot {
-  border-top-color: #1f2937;
+  border-top-color: var(--dark-border-regular);
 }
 
 .home-page.night-mode .topic-card {
-  background: #111827;
-  border-color: #1f2937;
+  background: var(--dark-bg-surface);
+  border-color: var(--dark-border-regular);
 }
 
 .home-page.night-mode .topic-title {
-  color: #f1f5f9;
+  color: var(--dark-text-primary);
 }
 
 .home-page.night-mode .topic-meta {
-  color: #64748b;
+  color: var(--dark-text-subtle);
 }
 
 .home-page.night-mode .back-top {
